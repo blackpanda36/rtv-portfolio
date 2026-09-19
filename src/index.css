@@ -17,20 +17,21 @@
     background-color: #FFFFFF;
     color: #0F172A;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Clean corporate scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F8FAFC;
+    background: #FFFFFF;
   }
   ::-webkit-scrollbar-thumb {
     background: #CBD5E1;
-    border-radius: 4px;
-    border: 2px solid #F8FAFC;
+    border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #EE6E00;
@@ -38,23 +39,28 @@
 }
 
 @layer utilities {
-  /* Ultra-subtle minimalist light grid */
+  /* Subtle light background grid */
   .bg-subtle-grid {
-    background-size: 48px 48px;
+    background-size: 56px 56px;
     background-image: 
-      linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
   }
 
-  /* Minimalist clean card */
-  .clean-card {
-    background-color: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    transition: all 0.2s ease-in-out;
+  /* Infinite marquee animation */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
   }
-  .clean-card:hover {
-    border-color: #CBD5E1;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+
+  .animate-marquee {
+    display: flex;
+    width: 200%;
+    animation: marquee 28s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
   }
 }
 

@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Award, Users, UserCheck, MapPin } from 'lucide-react';
 import { STATS } from '../data/companyData';
+import { Activity } from 'lucide-react';
 
 export const StatsSection: React.FC = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [counts, setCounts] = useState<number[]>([0, 0, 0, 0]);
   const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  const statIcons = [Award, Users, UserCheck, MapPin];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,7 +37,7 @@ export const StatsSection: React.FC = () => {
           }, intervalTime);
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -52,43 +50,54 @@ export const StatsSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16"
-      aria-label="Realtech Vision Key Statistics"
+      className="py-24 sm:py-32 bg-slate-50/60 border-t border-b border-slate-200/80"
+      aria-label="Real Tech Vision Verified Statistics"
     >
-      <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Headline */}
+        <div className="max-w-3xl mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-mono uppercase tracking-widest mb-4">
+            <Activity className="w-3.5 h-3.5 text-rtv-orange" />
+            <span>03 // Operational Telemetry</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 font-heading tracking-tight leading-tight">
+            Verified distribution scale and documented channel milestones.
+          </h2>
+        </div>
+
+        {/* Oversized Typography Statistics Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80">
           {STATS.map((stat, idx) => {
-            const Icon = statIcons[idx];
             const isPanIndia = idx === 3;
 
             return (
               <div
                 key={stat.label}
-                className={`flex items-start gap-4 ${
-                  idx !== 0 ? 'sm:pl-6 pt-4 sm:pt-0' : ''
-                }`}
+                className={`pt-6 sm:pt-0 ${idx !== 0 ? 'sm:pl-8' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200/80 flex items-center justify-center text-rtv-orange flex-shrink-0 mt-0.5">
-                  <Icon className="w-6 h-6" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-3xl sm:text-4xl font-black text-slate-950 font-heading tracking-tight">
-                      {isPanIndia ? 'PAN-India' : counts[idx].toLocaleString()}
+                {/* Metric Index */}
+                <span className="text-[10px] font-mono text-slate-400 block mb-2 uppercase tracking-wider">
+                  METRIC // 0{idx + 1}
+                </span>
+
+                {/* Massive Typography Number */}
+                <div className="flex items-baseline gap-0.5 mb-2">
+                  <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-950 font-heading tracking-tight">
+                    {isPanIndia ? 'PAN-India' : counts[idx].toLocaleString()}
+                  </span>
+                  {!isPanIndia && (
+                    <span className="text-4xl sm:text-5xl font-black text-rtv-orange">
+                      {stat.suffix}
                     </span>
-                    {!isPanIndia && (
-                      <span className="text-2xl sm:text-3xl font-bold text-rtv-orange">
-                        {stat.suffix}
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xs sm:text-sm font-bold text-slate-800 mt-1 uppercase tracking-wider">
-                    {stat.subLabel}
-                  </div>
-                  <p className="text-xs text-slate-500 mt-1 leading-relaxed line-clamp-2">
-                    {stat.description}
-                  </p>
+                  )}
                 </div>
+
+                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1">
+                  {stat.subLabel}
+                </div>
+                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-xs">
+                  {stat.description}
+                </p>
               </div>
             );
           })}

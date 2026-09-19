@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { IntroSection } from './components/IntroSection';
 import { StatsSection } from './components/StatsSection';
 import { AboutSection } from './components/AboutSection';
 import { SolutionsSection } from './components/SolutionsSection';
@@ -31,13 +32,16 @@ export const App: React.FC = () => {
 
       {/* Main Content Area */}
       <main className="flex-grow">
-        {/* Section 5: Hero Section */}
+        {/* Section: Hero Section */}
         <Hero onOpenPartnerModal={openPartnerModal} />
 
-        {/* Section 6: Verified Statistics Strip */}
+        {/* Section: Editorial Intro Section */}
+        <IntroSection onOpenPartnerModal={openPartnerModal} />
+
+        {/* Section: Verified Statistics Strip */}
         <StatsSection />
 
-        {/* Section 7: About Realtech Vision & 15+ Years Evolution */}
+        {/* Section: About Real Tech Vision & 15+ Years Evolution */}
         <AboutSection />
 
         {/* Section 8: What We Distribute (Solutions & Categories) */}

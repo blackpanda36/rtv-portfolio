@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, ArrowUp } from 'lucide-react';
+import { ArrowUpRight, ArrowUp } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 
 interface FooterProps {
@@ -12,37 +12,62 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
   };
 
   return (
-    <footer className="bg-slate-50 border-t border-slate-200 text-slate-600 text-xs pt-16 pb-12">
+    <footer className="bg-white border-t border-slate-200/80 text-slate-600 text-xs pt-20 pb-12 relative">
+      {/* Precision corner crosshairs */}
+      <div className="absolute top-6 left-6 font-mono text-xs text-slate-300 select-none pointer-events-none">+</div>
+      <div className="absolute top-6 right-6 font-mono text-xs text-slate-300 select-none pointer-events-none">+</div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-200">
+        {/* Closing Corporate Typography Statement */}
+        <div className="pb-16 mb-16 border-b border-slate-100 flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
+          <div>
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-slate-500 block mb-3">
+              NATIONAL PHYSICAL SECURITY DISTRIBUTION // RITCHIE STREET CHENNAI HO
+            </span>
+            <h3 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 font-heading tracking-tight leading-[1.08] max-w-3xl">
+              Connecting Technology. Securing Commercial Corridors.
+            </h3>
+          </div>
+
+          <button
+            onClick={onOpenPartnerModal}
+            className="group flex-shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold text-white bg-slate-950 hover:bg-rtv-orange shadow-xs hover:shadow-md transition-all duration-200"
+          >
+            <span>Initiate Partner Verification</span>
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </button>
+        </div>
+
+        {/* Corporate Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-slate-100">
           {/* Brand & Corporate Overview (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <a href="#hero" className="inline-block">
               <img
                 src="/realtech-logo-v2.png"
-                alt="Realtech Vision Logo"
+                alt="Real Tech Vision"
                 className="h-9 object-contain"
               />
             </a>
 
-            <p className="text-slate-600 leading-relaxed max-w-sm">
-              Realtech Vision is an established India-based B2B technology distribution company specializing in CCTV surveillance, networking infrastructure, IT storage, and electronic security products.
+            <p className="text-slate-600 leading-relaxed max-w-sm text-xs sm:text-sm font-normal">
+              Real Tech Vision is an established India-based B2B technology distribution company specializing in CCTV surveillance, networking infrastructure, IT storage, and electronic security products.
             </p>
 
-            <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
-              <span className="px-2.5 py-1 rounded bg-white border border-slate-200 text-rtv-orange font-semibold">
+            <div className="flex flex-wrap gap-2 pt-2 font-mono text-[11px]">
+              <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-rtv-orange font-semibold">
                 15+ Years Excellence
               </span>
-              <span className="px-2.5 py-1 rounded bg-white border border-slate-200 text-slate-700">
+              <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-700">
                 4,000+ Dealers
               </span>
-              <span className="px-2.5 py-1 rounded bg-white border border-slate-200 text-emerald-700 font-medium">
+              <span className="px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-emerald-700 font-medium">
                 100% Pure Channel
               </span>
             </div>
 
             <div className="pt-2">
-              <span className="text-[11px] text-slate-500 block">
+              <span className="text-[11px] text-slate-400 font-mono block">
                 Central Operations Hub:
               </span>
               <span className="text-slate-800 font-medium">
@@ -53,13 +78,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
 
           {/* Corporate Navigation (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 block">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-950 block">
               Company
             </span>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
                 <a href="#about" className="hover:text-rtv-orange transition-colors">
-                  About Realtech
+                  About Real Tech
                 </a>
               </li>
               <li>
@@ -79,12 +104,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
               </li>
               <li>
                 <a href="#why-realtech" className="hover:text-rtv-orange transition-colors">
-                  Why Realtech
+                  Why Real Tech
                 </a>
               </li>
               <li>
                 <a href="#network" className="hover:text-rtv-orange transition-colors">
-                  PAN-India Network
+                  Pan-India Network
                 </a>
               </li>
             </ul>
@@ -92,10 +117,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
 
           {/* Channel & Dealers (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 block">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-950 block">
               Dealers & Channel
             </span>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
                 <button
                   onClick={onOpenPartnerModal}
@@ -112,7 +137,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
                   className="inline-flex items-center gap-1.5 text-slate-600 hover:text-slate-950"
                 >
                   <span>Dealer Order Platform</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-rtv-orange" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-rtv-orange" />
                 </a>
               </li>
               <li>
@@ -145,7 +170,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
 
           {/* Regional Hubs & Contact (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 block">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-950 block">
               Branch Network
             </span>
             <div className="space-y-1.5 text-slate-700 text-[11px]">
@@ -156,25 +181,25 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
               <div><strong>Surat:</strong> Western Regional Depot</div>
             </div>
 
-            <div className="pt-3 border-t border-slate-200 space-y-1 text-slate-600">
-              <div>Phone: <strong className="text-slate-900 font-mono">{COMPANY_INFO.phone}</strong></div>
-              <div>Email: <strong className="text-slate-900 font-mono">{COMPANY_INFO.email}</strong></div>
+            <div className="pt-3 border-t border-slate-100 space-y-1 text-slate-600">
+              <div>Phone: <strong className="text-slate-950 font-mono">{COMPANY_INFO.phone}</strong></div>
+              <div>Email: <strong className="text-slate-950 font-mono">{COMPANY_INFO.email}</strong></div>
               <div>Hours: <span className="text-slate-500">{COMPANY_INFO.hours}</span></div>
             </div>
           </div>
         </div>
 
         {/* Bottom Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 font-mono text-[11px]">
           <div>
-            © 2026 Realtech Vision. All rights reserved. • India's B2B Security & Technology Distribution Network.
+            © 2026 Real Tech Vision. All rights reserved. • India's B2B Security & Technology Distribution Network.
           </div>
 
           <div className="flex items-center gap-6">
-            <span className="text-slate-600">100% Pure Distribution Channel Guarantee</span>
+            <span className="text-slate-500">100% Pure Channel Guarantee</span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors"
+              className="p-2.5 rounded-full bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-950 transition-colors"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />

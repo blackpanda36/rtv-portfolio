@@ -43,23 +43,27 @@ export const WhyRealtech: React.FC = () => {
   };
 
   return (
-    <section id="why-realtech" className="py-24 bg-slate-50/50 relative border-t border-b border-slate-200">
+    <section id="why-realtech" className="py-24 sm:py-32 bg-white relative border-t border-slate-100">
+      {/* Precision corner crosshairs */}
+      <div className="absolute top-6 left-6 font-mono text-xs text-slate-300 select-none pointer-events-none">+</div>
+      <div className="absolute top-6 right-6 font-mono text-xs text-slate-300 select-none pointer-events-none">+</div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-orange-50 border border-orange-200 text-rtv-orange text-xs font-bold uppercase tracking-wider mb-3">
-            <Award className="w-3.5 h-3.5" />
-            <span>Competitive Advantage</span>
+        <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono uppercase tracking-widest mb-4">
+            <Award className="w-3.5 h-3.5 text-rtv-orange" />
+            <span>DISCIPLINES // 10-PILLARS-06</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-950 font-heading tracking-tight mb-4">
-            Why Businesses & Dealers Choose Realtech Vision
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 font-heading tracking-tight leading-[1.1] mb-5">
+            Operational Security & Distribution Disciplines
           </h2>
-          <p className="text-base sm:text-lg text-slate-600">
-            Ten documented differentiators that make Realtech Vision India's most dependable security and technology distribution partner.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Ten verifiable operational disciplines establishing Real Tech Vision as India's trusted wholesale physical security and technology distributor.
           </p>
         </div>
 
-        {/* Bento Grid */}
+        {/* Bento / Editorial Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {DIFFERENTIATORS.map((item, idx) => {
             const Icon = getIcon(item.iconName);
@@ -68,63 +72,68 @@ export const WhyRealtech: React.FC = () => {
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl p-6 sm:p-7 border transition-all duration-200 relative group flex flex-col justify-between ${
+                className={`rounded-3xl p-7 sm:p-8 border transition-all duration-300 relative group flex flex-col justify-between ${
                   isFeatured
-                    ? 'bg-white border-2 border-rtv-orange shadow-sm md:col-span-2 lg:col-span-2'
-                    : 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
+                    ? 'bg-slate-50/60 border-slate-300/80 hover:border-rtv-orange md:col-span-2 lg:col-span-2'
+                    : 'bg-white border-slate-200/80 hover:border-slate-400/80 hover:shadow-sm'
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-6">
                     <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-105 ${
+                      className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 ${
                         isFeatured
-                          ? 'bg-rtv-orange text-white shadow-xs'
+                          ? 'bg-slate-950 text-white shadow-xs'
                           : 'bg-orange-50 text-rtv-orange border border-orange-100'
                       }`}
                     >
-                      <Icon className="w-6 h-6" />
+                      <Icon className="w-5 h-5" />
                     </div>
 
-                    {item.highlightTag && (
-                      <span
-                        className={`text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full ${
-                          isFeatured
-                            ? 'bg-rtv-orange text-white'
-                            : 'bg-orange-50 text-rtv-orange border border-orange-200'
-                        }`}
-                      >
-                        {item.highlightTag}
+                    <div className="flex items-center gap-3">
+                      {item.highlightTag && (
+                        <span
+                          className={`text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-full ${
+                            isFeatured
+                              ? 'bg-rtv-orange text-white'
+                              : 'bg-slate-100 text-slate-800 border border-slate-200'
+                          }`}
+                        >
+                          {item.highlightTag}
+                        </span>
+                      )}
+                      <span className="text-2xl sm:text-3xl font-black font-mono text-slate-200 group-hover:text-rtv-orange/40 transition-colors">
+                        {String(idx + 1).padStart(2, '0')}
                       </span>
-                    )}
+                    </div>
                   </div>
 
-                  <span className="text-xs font-mono font-semibold text-slate-500 uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-mono font-semibold text-rtv-orange uppercase tracking-wider block mb-2">
                     {item.subtitle}
                   </span>
                   <h3
-                    className={`font-bold font-heading mb-3 ${
+                    className={`font-black font-heading mb-3 tracking-tight ${
                       isFeatured
-                        ? 'text-xl sm:text-2xl text-slate-950'
-                        : 'text-lg text-slate-900 group-hover:text-rtv-orange transition-colors'
+                        ? 'text-2xl sm:text-3xl text-slate-950'
+                        : 'text-xl text-slate-950 group-hover:text-rtv-orange transition-colors'
                     }`}
                   >
                     {item.title}
                   </h3>
                   <p
-                    className={`leading-relaxed ${
+                    className={`leading-relaxed text-slate-600 ${
                       isFeatured
-                        ? 'text-sm sm:text-base text-slate-600'
-                        : 'text-xs sm:text-sm text-slate-600'
+                        ? 'text-base'
+                        : 'text-sm'
                     }`}
                   >
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-mono">
-                  <span>Differentiator 0{idx + 1}</span>
-                  <span className="group-hover:text-rtv-orange transition-colors font-medium">Verified Standard</span>
+                <div className="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-mono">
+                  <span>DISCIPLINE // {String(idx + 1).padStart(2, '0')}</span>
+                  <span className="group-hover:text-slate-900 transition-colors font-medium">Channel Protocol</span>
                 </div>
               </div>
             );
