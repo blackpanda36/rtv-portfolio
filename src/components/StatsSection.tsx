@@ -1,11 +1,42 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Award, Users, Wrench, Building2 } from 'lucide-react';
 import { STATS } from '../data/companyData';
-import { Activity } from 'lucide-react';
 
 export const StatsSection: React.FC = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [counts, setCounts] = useState<number[]>([0, 0, 0, 0]);
   const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  const statsToDisplay = [
+    {
+      value: STATS[0].value, // 15
+      suffix: '+',
+      label: 'Years Distribution',
+      subtext: 'Channel integrity, wholesale scaling & supply stability since 2008.',
+      icon: Award
+    },
+    {
+      value: STATS[1].value, // 4000
+      suffix: '+',
+      label: 'Channel Dealers',
+      subtext: 'System integrators & IT contractors empowered across India.',
+      icon: Users
+    },
+    {
+      value: STATS[2].value, // 130
+      suffix: '+',
+      label: 'In-House Personnel',
+      subtext: 'Engineers, RMA technicians & regional logistics coordinators.',
+      icon: Wrench
+    },
+    {
+      value: 5,
+      suffix: ' Hubs',
+      label: 'Regional Super-Hubs',
+      subtext: 'Warehouses in Chennai, Delhi, Hyderabad, Bangalore, Surat.',
+      icon: Building2
+    }
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,9 +44,8 @@ export const StatsSection: React.FC = () => {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          const duration = 1600; // ms
+          const duration = 1600;
           const steps = 35;
-          const intervalTime = duration / steps;
           let step = 0;
 
           const timer = setInterval(() => {
@@ -24,17 +54,22 @@ export const StatsSection: React.FC = () => {
             const easeOutQuart = 1 - Math.pow(1 - progress, 4);
 
             setCounts([
-              Math.floor(STATS[0].value * easeOutQuart),
-              Math.floor(STATS[1].value * easeOutQuart),
-              Math.floor(STATS[2].value * easeOutQuart),
-              Math.floor(STATS[3].value * easeOutQuart),
+              Math.floor(statsToDisplay[0].value * easeOutQuart),
+              Math.floor(statsToDisplay[1].value * easeOutQuart),
+              Math.floor(statsToDisplay[2].value * easeOutQuart),
+              Math.floor(statsToDisplay[3].value * easeOutQuart),
             ]);
 
             if (step >= steps) {
-              setCounts([STATS[0].value, STATS[1].value, STATS[2].value, STATS[3].value]);
+              setCounts([
+                statsToDisplay[0].value,
+                statsToDisplay[1].value,
+                statsToDisplay[2].value,
+                statsToDisplay[3].value,
+              ]);
               clearInterval(timer);
             }
-          }, intervalTime);
+          }, duration / steps);
         }
       },
       { threshold: 0.2 }
@@ -48,61 +83,43 @@ export const StatsSection: React.FC = () => {
   }, [hasAnimated]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 sm:py-32 bg-slate-50/60 border-t border-b border-slate-200/80"
-      aria-label="Real Tech Vision Verified Statistics"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Headline */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-mono uppercase tracking-widest mb-4">
-            <Activity className="w-3.5 h-3.5 text-rtv-orange" />
-            <span>03 // Operational Telemetry</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 font-heading tracking-tight leading-tight">
-            Verified distribution scale and documented channel milestones.
-          </h2>
-        </div>
-
-        {/* Oversized Typography Statistics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80">
-          {STATS.map((stat, idx) => {
-            const isPanIndia = idx === 3;
-
+    <section ref={sectionRef} className="bg-[#f5f5f5] border-b border-[#e6e6e6] py-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Microsoft 4-Column Stat Strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {statsToDisplay.map((stat, idx) => {
+            const Icon = stat.icon;
             return (
               <div
                 key={stat.label}
-                className={`pt-6 sm:pt-0 ${idx !== 0 ? 'sm:pl-8' : ''}`}
+                className="bg-white border border-[#e6e6e6] p-6 shadow-fluent rounded-[2px] transition-all hover:border-[#0067b8]"
               >
-                {/* Metric Index */}
-                <span className="text-[10px] font-mono text-slate-400 block mb-2 uppercase tracking-wider">
-                  METRIC // 0{idx + 1}
-                </span>
-
-                {/* Massive Typography Number */}
-                <div className="flex items-baseline gap-0.5 mb-2">
-                  <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-slate-950 font-heading tracking-tight">
-                    {isPanIndia ? 'PAN-India' : counts[idx].toLocaleString()}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded bg-[#ebf3fc] text-[#0067b8] flex items-center justify-center">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-semibold text-[#616161] uppercase tracking-wider">
+                    {stat.label}
                   </span>
-                  {!isPanIndia && (
-                    <span className="text-4xl sm:text-5xl font-black text-rtv-orange">
-                      {stat.suffix}
-                    </span>
-                  )}
                 </div>
 
-                <div className="text-sm sm:text-base font-bold text-slate-900 mb-1">
-                  {stat.subLabel}
+                <div className="text-3xl sm:text-4xl font-bold text-[#242424] font-sans tracking-tight mb-2">
+                  {hasAnimated ? counts[idx] : 0}
+                  <span className="text-[#0067b8]">{stat.suffix}</span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-xs">
-                  {stat.description}
+
+                <p className="text-xs text-[#616161] leading-relaxed">
+                  {stat.subtext}
                 </p>
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );
 };
+
+export default StatsSection;

@@ -1,192 +1,107 @@
 import React, { useState } from 'react';
-import { MapPin, ArrowUpRight, Check, Building2, ShieldCheck, Clock } from 'lucide-react';
-import { COMPANY_INFO, TIMELINE_MILESTONES, BRANCHES } from '../data/companyData';
+import { Building2, CheckCircle2 } from 'lucide-react';
+import { TIMELINE_MILESTONES } from '../data/companyData';
 
 export const AboutSection: React.FC = () => {
-  const [activePhase, setActivePhase] = useState(0);
+  const [activeMilestone, setActiveMilestone] = useState(0);
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-14 sm:py-20 bg-[#fafafa] border-b border-[#e6e6e6]">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
-        <div className="max-w-4xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono uppercase tracking-widest mb-4">
-            <Building2 className="w-3.5 h-3.5 text-rtv-orange" />
-            <span>04 // Corporate Profile & Heritage</span>
+        <div className="mb-10 sm:mb-12">
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#616161] uppercase tracking-wider mb-2">
+            <Building2 className="w-3.5 h-3.5 text-[#0067b8]" />
+            <span>Corporate Heritage • Est. 2008</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 font-heading tracking-tight leading-[1.05]">
-            Disciplined physical security distribution across India's commercial corridors.
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-[#242424] font-sans tracking-tight">
+            15+ Years of Dedicated B2B Security & Tech Distribution
           </h2>
+          <p className="text-sm sm:text-base text-[#616161] max-w-2xl mt-1">
+            Born in Ritchie Street, Chennai—the premier electronics commercial district of South India—Realtech Vision has maintained unwavering wholesale channel integrity.
+          </p>
         </div>
 
-        {/* Narrative & Strategic Branch Hubs Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
-          {/* Left Editorial Narrative (6 cols) */}
-          <div className="lg:col-span-6 space-y-6 text-slate-600 leading-relaxed text-base sm:text-lg font-normal">
-            <p className="text-slate-950 font-semibold text-xl sm:text-2xl leading-snug">
-              Established in 2008 in Ritchie Street, Chennai—the commercial electronics cluster of South India—Real Tech Vision has maintained continuous wholesale distribution operations for over 15 years.
-            </p>
-
-            <p>
-              We serve as an audited distribution bridge between global physical security manufacturers and more than 4,000 independent security dealers, system integrators, and infrastructure contractors across India.
-            </p>
-
-            <p className="text-sm sm:text-base text-slate-500">
-              Our organization comprises 130+ personnel across technical pre-sales engineering, inventory warehousing, logistics dispatch, and in-house component RMA repair labs—safeguarding supply continuity across all 28 states.
-            </p>
-
-            {/* Core Commitments */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-800 font-mono">
-              <div className="flex items-center gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-orange-50 text-rtv-orange flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </span>
-                <span className="font-semibold">Pure Channel Covenant</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-orange-50 text-rtv-orange flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </span>
-                <span className="font-semibold">Direct Factory Warranties</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-orange-50 text-rtv-orange flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </span>
-                <span className="font-semibold">In-House RMA Facilities</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-orange-50 text-rtv-orange flex items-center justify-center flex-shrink-0">
-                  <Check className="w-3.5 h-3.5 stroke-[3]" />
-                </span>
-                <span className="font-semibold">5 Strategic Warehouses</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: Branch Hubs Directory Card (6 cols) */}
-          <div className="lg:col-span-6 bg-slate-50/70 rounded-3xl p-6 sm:p-9 border border-slate-200/80">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
-              <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-rtv-orange font-bold">
-                  Physical Hub Infrastructure
-                </span>
-                <h3 className="text-xl font-bold text-slate-950 mt-1 font-heading">
-                  5 Strategic Warehousing Depots
-                </h3>
-              </div>
-              <span className="px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-mono text-slate-700 font-semibold">
-                NATIONAL TOPOLOGY
-              </span>
-            </div>
-
-            <div className="space-y-3">
-              {BRANCHES.map((b) => (
-                <div
-                  key={b.id}
-                  className={`p-4 rounded-2xl border transition-all ${
-                    b.isHeadquarter
-                      ? 'bg-white border-rtv-orange shadow-2xs'
-                      : 'bg-white/80 border-slate-200/80 hover:border-slate-300'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <MapPin
-                        className={`w-4 h-4 ${
-                          b.isHeadquarter ? 'text-rtv-orange' : 'text-slate-400'
-                        }`}
-                      />
-                      <div>
-                        <span className="text-sm font-bold text-slate-900 font-heading">
-                          {b.city}
-                        </span>
-                        <span className="text-xs text-slate-400 font-mono ml-2">
-                          ({b.state})
-                        </span>
-                      </div>
-                    </div>
-                    <span
-                      className={`text-[10px] font-mono font-bold uppercase px-2.5 py-0.5 rounded-full ${
-                        b.isHeadquarter
-                          ? 'bg-rtv-orange text-white'
-                          : 'bg-slate-100 text-slate-700'
-                      }`}
-                    >
-                      {b.type}
-                    </span>
-                  </div>
-                  <div className="text-xs text-slate-500 mt-2 pl-7 flex items-center justify-between">
-                    <span>{b.address}</span>
-                    <span className="font-mono font-semibold text-slate-700">{b.transitTime}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-mono">
-              <span>Channel Inquiries: {COMPANY_INFO.phone}</span>
-              <span className="text-rtv-orange font-semibold">Deterministic Inter-State Transit</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Milestone Evolution: 15+ Years of Distribution Excellence */}
-        <div className="pt-12 border-t border-slate-100">
-          <div className="max-w-2xl mb-12">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-rtv-orange block mb-2">
-              Timeline & Milestones
-            </span>
-            <h3 className="text-2xl sm:text-4xl font-black text-slate-950 font-heading tracking-tight">
-              15+ Years of Channel Continuity
+        {/* Narrative & Timeline Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+          
+          {/* Left: Editorial Narrative Card (6 cols) */}
+          <div className="lg:col-span-6 bg-white border border-[#e6e6e6] p-6 sm:p-8 shadow-fluent rounded-[2px] space-y-5">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#242424] leading-snug">
+              An Audited Bridge Connecting Global Manufacturers with 4,000+ Verified Channel Partners.
             </h3>
-            <p className="text-sm text-slate-500 mt-2">
-              Documented phases of corporate growth, depot commissioning, and technology portfolio scaling.
+
+            <p className="text-sm text-[#444444] leading-relaxed">
+              Established in 2008, Realtech Vision operates as a pure B2B distributor. We never sell directly to retail end-consumers or bid against our partners. Every system integrator, government contractor, and dealer benefits from price protection and priority stock reserves.
             </p>
+
+            <p className="text-sm text-[#444444] leading-relaxed">
+              Our 130+ personnel operate across technical BOM estimation, multi-warehouse logistics, live inventory sync, and in-house component repair labs to guarantee 24 to 48-hour fulfillment across all 28 states of India.
+            </p>
+
+            {/* Core Commitments Checklist */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-[#e6e6e6] text-xs">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#7fba00] flex-shrink-0" />
+                <span className="font-semibold text-[#242424]">100% Pure Distribution</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#7fba00] flex-shrink-0" />
+                <span className="font-semibold text-[#242424]">Factory Direct Warranties</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#7fba00] flex-shrink-0" />
+                <span className="font-semibold text-[#242424]">In-House Certified RMA</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#7fba00] flex-shrink-0" />
+                <span className="font-semibold text-[#242424]">5 Regional Warehouses</span>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {TIMELINE_MILESTONES.map((item, idx) => (
-              <div
-                key={item.phase}
-                onClick={() => setActivePhase(idx)}
-                className={`p-6 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between ${
-                  activePhase === idx
-                    ? 'bg-white border-slate-900 shadow-sm'
-                    : 'bg-slate-50/50 border-slate-200/80 hover:border-slate-300 hover:bg-white'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span
-                      className={`text-xs font-mono font-bold ${
-                        activePhase === idx ? 'text-rtv-orange' : 'text-slate-400'
-                      }`}
-                    >
-                      Phase 0{idx + 1}
-                    </span>
-                    <div
-                      className={`w-2 h-2 rounded-full ${
-                        activePhase === idx ? 'bg-rtv-orange' : 'bg-slate-300'
-                      }`}
-                    />
-                  </div>
+          {/* Right: Milestone Timeline Cards (6 cols) */}
+          <div className="lg:col-span-6 bg-white border border-[#e6e6e6] p-6 sm:p-8 shadow-fluent rounded-[2px]">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#e6e6e6]">
+              <span className="text-xs uppercase font-mono font-bold text-[#0067b8]">
+                CHRONOLOGY & EXPANSION MILESTONES
+              </span>
+              <span className="text-xs text-[#616161]">2008 – 2026</span>
+            </div>
 
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold mb-1">
-                    {item.phase}
+            <div className="space-y-4">
+              {TIMELINE_MILESTONES.map((item, idx) => (
+                <div
+                  key={item.phase}
+                  className={`p-4 border rounded-[2px] transition-all cursor-pointer ${
+                    activeMilestone === idx
+                      ? 'border-[#0067b8] bg-[#ebf3fc]/30'
+                      : 'border-[#e6e6e6] hover:border-[#8a8a8a] bg-white'
+                  }`}
+                  onClick={() => setActiveMilestone(idx)}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-sm font-bold text-[#0067b8]">
+                      {item.phase} — {item.title}
+                    </span>
+                    <span className="text-[11px] font-mono text-[#616161] px-2 py-0.5 bg-[#f0f0f0] rounded-[2px]">
+                      {item.phase}
+                    </span>
                   </div>
-                  <h4 className="text-base font-bold text-slate-950 font-heading mb-2 leading-snug">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed">
+                  <p className="text-xs text-[#444444] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+
         </div>
+
       </div>
     </section>
   );
 };
+
+export default AboutSection;

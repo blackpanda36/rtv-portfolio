@@ -1,21 +1,10 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { IntroSection } from './components/IntroSection';
-import { StatsSection } from './components/StatsSection';
-import { AboutSection } from './components/AboutSection';
 import { SolutionsSection } from './components/SolutionsSection';
-import { PureDistribution } from './components/PureDistribution';
 import { BrandShowcase } from './components/BrandShowcase';
-import { WhyRealtech } from './components/WhyRealtech';
+import { BecomePartnerSection } from './components/BecomePartnerSection';
 import { PanIndiaNetwork } from './components/PanIndiaNetwork';
-import { OperationsWorkflow } from './components/OperationsWorkflow';
-import { DealerEcosystem } from './components/DealerEcosystem';
-import { TechnologyPlatform } from './components/TechnologyPlatform';
-import { VisualShowcase } from './components/VisualShowcase';
-import { CompanyValues } from './components/CompanyValues';
-import { CallToAction } from './components/CallToAction';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { PartnerModal } from './components/PartnerModal';
 
@@ -26,65 +15,32 @@ export const App: React.FC = () => {
   const closePartnerModal = () => setIsPartnerModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-rtv-orange selection:text-white">
-      {/* Sticky Navigation Bar */}
+    <div className="min-h-screen bg-white text-[#13191E] flex flex-col font-sans selection:bg-[#FD5C08] selection:text-white relative">
+      {/* Minimalist Microsoft UHF Navbar with Official Logo */}
       <Navbar onOpenPartnerModal={openPartnerModal} />
 
       {/* Main Content Area */}
       <main className="flex-grow">
-        {/* Section: Hero Section */}
+        {/* Minimal Hero Banner with Direct Portal Access */}
         <Hero onOpenPartnerModal={openPartnerModal} />
 
-        {/* Section: Editorial Intro Section */}
-        <IntroSection onOpenPartnerModal={openPartnerModal} />
-
-        {/* Section: Verified Statistics Strip */}
-        <StatsSection />
-
-        {/* Section: About Real Tech Vision & 15+ Years Evolution */}
-        <AboutSection />
-
-        {/* Section 8: What We Distribute (Solutions & Categories) */}
+        {/* Core Hardware & Solutions Focus Grid */}
         <SolutionsSection onOpenPartnerModal={openPartnerModal} />
 
-        {/* Section 11: 100% Pure Distribution Model */}
-        <PureDistribution />
-
-        {/* Section 9: Brand Ecosystem */}
+        {/* Premier Technology Brand Alliances */}
         <BrandShowcase onOpenPartnerModal={openPartnerModal} />
 
-        {/* Section 10: Why Businesses Choose Realtech */}
-        <WhyRealtech />
+        {/* 4-Step Partner Onboarding & Purchasing Guide */}
+        <BecomePartnerSection onOpenPartnerModal={openPartnerModal} />
 
-        {/* Section 12: Interactive PAN-India Network */}
+        {/* 5 Strategic Regional Super-Hubs */}
         <PanIndiaNetwork />
-
-        {/* Section 13: Operational Workflow & Pipeline */}
-        <OperationsWorkflow />
-
-        {/* Section 14: Dealer Growth Ecosystem */}
-        <DealerEcosystem onOpenPartnerModal={openPartnerModal} />
-
-        {/* Section 15: Technology-Driven Distribution (Realconnect Platform) */}
-        <TechnologyPlatform />
-
-        {/* Section 16: Visual Hardware Showcase */}
-        <VisualShowcase />
-
-        {/* Section 17: Company Values - Built Around Trust */}
-        <CompanyValues />
-
-        {/* Section 18: Final Call to Action */}
-        <CallToAction onOpenPartnerModal={openPartnerModal} />
-
-        {/* Section 19: Contact, Branches & Onboarding Application */}
-        <ContactSection />
       </main>
 
-      {/* Section 20: Corporate Footer */}
+      {/* Clean 4-Column Minimal Footer */}
       <Footer onOpenPartnerModal={openPartnerModal} />
 
-      {/* Onboarding & Partner Application Modal */}
+      {/* Streamlined Dealer Onboarding Modal */}
       <PartnerModal isOpen={isPartnerModalOpen} onClose={closePartnerModal} />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ShieldCheck, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { X, ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react';
 import { INDIAN_STATES_AND_CITIES } from '../data/companyData';
 
 interface PartnerModalProps {
@@ -41,200 +41,212 @@ export const PartnerModal: React.FC<PartnerModalProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs overflow-y-auto">
-      <div className="relative w-full max-w-xl rounded-3xl bg-white border border-slate-200/80 p-6 sm:p-9 shadow-2xl my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs overflow-y-auto">
+      <div className="relative w-full max-w-xl bg-white border border-[#d1d1d1] p-6 sm:p-8 shadow-[0_16px_36px_rgba(0,0,0,0.2)] rounded-[2px] my-8 animate-in fade-in zoom-in-95 duration-150">
+        
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2.5 rounded-full text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors"
-          aria-label="Close modal"
+          className="absolute top-4 right-4 p-2 text-[#5A6573] hover:text-[#13191E] hover:bg-neutral-100 rounded focus:outline-none"
+          aria-label="Close dialog"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <div className="flex items-center gap-3.5 mb-6">
-          <div className="w-11 h-11 rounded-2xl bg-orange-50 text-rtv-orange flex items-center justify-center flex-shrink-0 border border-orange-200/60">
-            <ShieldCheck className="w-5 h-5" />
-          </div>
+        <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-[#e6e6e6]">
+          <img
+            src="/realtech-logo-v2.png"
+            alt="Realtech Vision"
+            className="h-8 w-auto object-contain flex-shrink-0"
+          />
           <div>
-            <span className="text-[10px] font-mono uppercase font-bold text-rtv-orange tracking-widest block">
-              Authorized Distribution Onboarding
-            </span>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-950 font-heading tracking-tight">
-              Partner with Real Tech Vision
-            </h3>
+            <h2 className="text-lg font-bold text-[#13191E] font-sans">
+              Authorized Dealer Onboarding & Channel Verification
+            </h2>
+            <p className="text-xs text-[#5A6573]">
+              Strictly for verified security dealers, system integrators & IT channel partners.
+            </p>
           </div>
         </div>
 
         {submitted ? (
           <div className="py-8 text-center space-y-4">
-            <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-7 h-7" />
+            <div className="w-14 h-14 rounded-full bg-[#FFF3EC] text-[#FD5C08] border border-[#FED7AA] flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h4 className="text-xl font-bold text-slate-950 font-heading">Application Received</h4>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
-              Our regional distribution manager will contact you at <strong className="text-slate-950 font-mono">{form.phone}</strong> to activate your authorized wholesale dealer account.
+            <h3 className="text-xl font-bold text-[#13191E]">Verification Request Received</h3>
+            <p className="text-sm text-[#5A6573] max-w-md mx-auto leading-relaxed">
+              Thank you, <span className="font-semibold text-[#13191E]">{form.name}</span>. A dedicated regional branch manager from our <span className="font-semibold text-[#13191E]">{form.state}</span> logistics desk will review your credentials and dispatch your wholesale dealer portal access credentials within 2 business hours.
             </p>
-            <div className="pt-3">
+            <div className="pt-4">
               <button
-                onClick={onClose}
-                className="px-7 py-3 rounded-full text-xs font-bold text-white bg-slate-950 hover:bg-rtv-orange transition-all"
+                onClick={() => {
+                  setSubmitted(false);
+                  onClose();
+                }}
+                className="ms-btn-primary px-8"
               >
-                Close Window
+                <span>Return to Homepage</span>
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4 text-left">
-            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-              Fill out your details to access wholesale dealer tier pricing, credit accounts, and direct manufacturer warranty support.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                <label className="block text-[#242424] font-semibold mb-1">
                   Full Name *
                 </label>
                 <input
-                  type="text"
                   required
+                  type="text"
                   placeholder="e.g. Rajesh Kumar"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Firm / Company Name *
+                <label className="block text-[#242424] font-semibold mb-1">
+                  Business / Firm Name *
                 </label>
                 <input
-                  type="text"
                   required
-                  placeholder="e.g. Apex Security Systems"
+                  type="text"
+                  placeholder="e.g. Apex Security Solutions"
                   value={form.firmName}
                   onChange={(e) => setForm({ ...form, firmName: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Mobile / WhatsApp *
+                <label className="block text-[#242424] font-semibold mb-1">
+                  Phone / WhatsApp *
                 </label>
                 <input
-                  type="tel"
                   required
+                  type="tel"
                   placeholder="+91 98400 00000"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors font-mono"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                <label className="block text-[#242424] font-semibold mb-1">
                   Business Email *
                 </label>
                 <input
-                  type="email"
                   required
-                  placeholder="rajesh@apexsec.in"
+                  type="email"
+                  placeholder="rajesh@firm.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  State / Region *
+                <label className="block text-[#242424] font-semibold mb-1">
+                  State / Jurisdiction
                 </label>
                 <select
                   value={selectedState}
                   onChange={handleStateChange}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 >
-                  {Object.keys(INDIAN_STATES_AND_CITIES).map((st) => (
-                    <option key={st} value={st}>
-                      {st}
+                  {Object.keys(INDIAN_STATES_AND_CITIES).map((state) => (
+                    <option key={state} value={state}>
+                      {state}
                     </option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  City / Town *
+                <label className="block text-[#242424] font-semibold mb-1">
+                  City / Commercial Hub
                 </label>
                 <select
                   value={form.city}
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 >
-                  {(INDIAN_STATES_AND_CITIES[selectedState] || []).map((ct) => (
-                    <option key={ct} value={ct}>
-                      {ct}
+                  {(INDIAN_STATES_AND_CITIES[selectedState] || []).map((city) => (
+                    <option key={city} value={city}>
+                      {city}
                     </option>
                   ))}
                 </select>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Business Entity Type
+                <label className="block text-[#242424] font-semibold mb-1">
+                  Channel Role
                 </label>
                 <select
                   value={form.role}
                   onChange={(e) => setForm({ ...form, role: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 >
-                  <option value="Dealer / Retailer">CCTV / IT Dealer</option>
-                  <option value="System Integrator">System Integrator</option>
-                  <option value="Security Contractor">Security Contractor</option>
-                  <option value="Manufacturer">Brand / OEM Manufacturer</option>
+                  <option>System Integrator (CCTV / IT)</option>
+                  <option>Regional Sub-Distributor</option>
+                  <option>Security Hardware Retailer</option>
+                  <option>Govt / Enterprise Contractor</option>
                 </select>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 mb-1">
-                  Estimated Monthly Volume
+                <label className="block text-[#242424] font-semibold mb-1">
+                  Monthly Procurement Budget
                 </label>
                 <select
                   value={form.volume}
                   onChange={(e) => setForm({ ...form, volume: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-2xl bg-slate-50/60 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-slate-900 focus:bg-white transition-colors"
+                  className="w-full px-3 py-2 bg-white border border-[#8a8a8a] text-[#242424] rounded-[2px] focus:outline-none focus:border-[#FD5C08] focus:ring-1 focus:ring-[#FD5C08]"
                 >
-                  <option value="₹50K - ₹2L / Month">₹50K - ₹2 Lakhs / Month</option>
-                  <option value="₹2L - ₹10L / Month">₹2 Lakhs - ₹10 Lakhs / Month</option>
-                  <option value="₹10L+ / Month">₹10 Lakhs+ / Month (Enterprise)</option>
+                  <option>₹1 Lakh – ₹5 Lakhs</option>
+                  <option>₹5 Lakhs – ₹15 Lakhs</option>
+                  <option>₹15 Lakhs – ₹50 Lakhs</option>
+                  <option>₹50 Lakhs+ (Super-Dealer)</option>
                 </select>
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="w-full group py-3.5 rounded-full font-bold text-xs sm:text-sm text-white bg-slate-950 hover:bg-rtv-orange shadow-xs hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 mt-4"
-            >
-              <span>Submit Partner Registration</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
+            {/* Pure distribution covenant acknowledgement */}
+            <div className="p-3 bg-[#FFF3EC]/50 border border-[#FED7AA]/70 rounded-[2px] text-[11px] text-[#5A6573]">
+              <span className="font-semibold text-[#13191E] block mb-0.5">
+                Wholesale Dealer Covenant:
+              </span>
+              Realtech Vision operates on an exclusive B2B model. All partner pricing and credit lines are kept confidential.
+            </div>
 
-            <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 font-mono text-center pt-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Pure Wholesale Distribution • No Retail Customers Served</span>
+            {/* Submit Button */}
+            <div className="pt-2">
+              <button
+                type="submit"
+                className="ms-btn-primary w-full py-2.5 text-sm justify-center group"
+              >
+                <span>Submit Verification & Request Access</span>
+                <ArrowRight className="w-4 h-4 ms-chevron" />
+              </button>
             </div>
           </form>
         )}
+
       </div>
     </div>
   );
 };
+
+export default PartnerModal;

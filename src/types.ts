@@ -87,3 +87,29 @@ export interface DealerPillar {
   perks: string[];
   iconName: string;
 }
+
+export interface PortalProduct {
+  id: string;
+  name: string;
+  brand: string;
+  cat: string;
+  mrp: number;
+  dp: number;
+  icon: string;
+  badge?: string;
+  stock: number;
+  desc: string;
+}
+
+export interface PortalBrand {
+  name: string;
+  sub: string;
+  emoji: string;
+  img?: string;
+}
+
+export interface PortalCategory {
+  name: string;
+  emoji: string;
+  count: number;
+}

@@ -1,219 +1,187 @@
-import React, { useState } from 'react';
-import { Camera, Server, HardDrive, Network, Eye, Layers } from 'lucide-react';
+import React from 'react';
+import { Building2, Warehouse, Cpu, Layers, ArrowRight, ChevronRight, CheckCircle2 } from 'lucide-react';
 
-export const VisualShowcase: React.FC = () => {
-  const [activeItem, setActiveItem] = useState(0);
+interface VisualShowcaseProps {
+  onOpenPartnerModal?: () => void;
+}
 
-  const showcaseItems = [
+export const VisualShowcase: React.FC<VisualShowcaseProps> = ({ onOpenPartnerModal }) => {
+  const caseStudies = [
     {
-      title: 'Next-Gen AI IR Dome Surveillance Camera',
-      category: 'CCTV & Video Security',
-      formFactor: 'Vandal-Resistant Dome',
-      resolution: '4MP / 8MP Ultra-HD',
-      optics: 'Smart Dual-Illumination 30m IR',
-      chassis: 'IP67 Weatherproof & IK10 Vandal-Proof',
-      standard: 'H.265+ Compression',
-      deployments: 'Commercial corporate offices, financial banks, educational campuses',
-      tag: 'High Demand',
-      icon: Camera
+      id: 'banking-surveillance',
+      isFeatured: true,
+      categoryTags: ['Banking & Finance', 'Multi-Site Security', 'Centralized NVR'],
+      title: 'Multi-Branch Financial Surveillance Grid with Centralized Decoders',
+      outcomeBlurb:
+        'Architected high-definition optical surveillance and sequential write-intensive storage arrays for over 120+ retail bank branches. Delivered 100% video stream retention, 24/7 centralized multi-site monitoring, and automated tamper alert triggers with zero packet loss.',
+      keyMetrics: [
+        { label: 'Branches Deployed', val: '120+' },
+        { label: 'Video Retention', val: '100%' },
+        { label: 'Stream Reliability', val: '99.99%' }
+      ],
+      icon: Building2
     },
     {
-      title: 'Ultra-Long Range Perimeter Bullet Camera',
-      category: 'CCTV & Video Security',
-      formFactor: 'Industrial Bullet Enclosure',
-      resolution: '4K Ultra-HD 8MP Sensor',
-      optics: '50m Smart IR + Vehicle/Human Classification',
-      chassis: 'Corrosion-Resistant Metal Housing',
-      standard: 'Low-Light ColorVu Aperture F1.0',
-      deployments: 'Highways, logistics warehouses, manufacturing yards, perimeter fencing',
-      tag: 'Perimeter Defense',
-      icon: Eye
+      id: 'logistics-infrastructure',
+      isFeatured: false,
+      categoryTags: ['Logistics & Supply Chain', 'High-Budget PoE'],
+      title: 'Industrial Logistics Yard High-Budget PoE Backbone',
+      outcomeBlurb:
+        'Deployed extended 250m long-distance PoE+ switching and solid copper Cat6 infrastructure across a 40-acre multi-warehouse distribution center, eliminating mid-span repeaters and cutting deployment latency by 35%.',
+      keyMetrics: [
+        { label: 'Perimeter Coverage', val: '40 Acres' },
+        { label: 'PoE Long-Reach', val: '250 Meters' }
+      ],
+      icon: Warehouse
     },
     {
-      title: 'Enterprise 16CH / 32CH 4K Network Video Recorder (NVR)',
-      category: 'Centralized Surveillance Storage',
-      formFactor: '1.5U / 2U Rackmount Chassis',
-      resolution: 'Up to 32-Channel 4K Decoding',
-      optics: '4 x SATA Interfaces (Up to 40TB Total Capacity)',
-      chassis: 'Dual Gigabit NICs, Redundant Power Support',
-      standard: 'H.265+ Real-Time Streaming Bandwidth',
-      deployments: 'Command & control centers, centralized surveillance hubs, multi-site retail',
-      tag: 'Heavy Workload',
-      icon: Server
-    },
-    {
-      title: 'Enterprise 16-Port Gigabit PoE+ Distribution Switch',
-      category: 'Network Infrastructure',
-      formFactor: '19-Inch Metal Rackmount',
-      resolution: '16x 100/1000M PoE + 2x Gigabit Uplink SFP',
-      optics: '250W Total PoE Power Budget (30W per port)',
-      chassis: 'Built-in 6kV Lightning Surge Protection',
-      standard: 'Long-Range 250m Extended PoE Mode',
-      deployments: 'High-density IP camera networks, VoIP communication, enterprise Wi-Fi',
-      tag: 'Network Core',
-      icon: Network
-    },
-    {
-      title: 'Purpose-Built 24/7 Surveillance Hard Drives (2TB / 4TB)',
-      category: 'Surveillance Duty Storage',
-      formFactor: '3.5-Inch Serial ATA III (SATA 6Gb/s)',
-      resolution: 'Continuous Multi-Stream Write Optimization',
-      optics: 'Up to 64 HD Camera Streams Concurrently',
-      chassis: 'Tarnish-Resistant Industrial Components',
-      standard: 'Workload Rating 180TB/year',
-      deployments: 'Continuous write-intensive NVRs, digital DVRs, security video vaults',
-      tag: 'Zero Dropped Frames',
-      icon: HardDrive
+      id: 'biometric-premises',
+      isFeatured: false,
+      categoryTags: ['Commercial Tech Park', 'Premises Access'],
+      title: 'Unified Touchless Biometric & Access Control Ecosystem',
+      outcomeBlurb:
+        'Integrated 3,500+ employee facial/fingerprint terminals with heavy-duty electromagnetic locking assemblies for a modern IT corridor campus. Achieved sub-0.5 second entry verification and real-time attendance telemetry.',
+      keyMetrics: [
+        { label: 'User Directory', val: '3,500+' },
+        { label: 'Recognition Speed', val: '<0.5 Sec' }
+      ],
+      icon: Cpu
     }
   ];
 
-  const current = showcaseItems[activeItem];
-  const CurrentIcon = current.icon;
-
   return (
-    <section className="py-24 sm:py-32 bg-white relative border-t border-slate-100">
-      {/* Precision corner crosshairs */}
-      <div className="absolute top-6 left-6 font-mono text-xs text-slate-300 select-none pointer-events-none">+</div>
-      <div className="absolute top-6 right-6 font-mono text-xs text-slate-300 select-none pointer-events-none">+</div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono uppercase tracking-widest mb-4">
-            <Layers className="w-3.5 h-3.5 text-rtv-orange" />
-            <span>GALLERY // SPEC-AUDIT-12</span>
+    <section id="case-studies" className="py-14 sm:py-20 bg-white border-b border-[#e6e6e6]">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="mb-10 sm:mb-12">
+          <div className="flex items-center gap-2 text-xs font-semibold text-[#616161] uppercase tracking-wider mb-2">
+            <Layers className="w-3.5 h-3.5 text-[#0067b8]" />
+            <span>Enterprise Case Studies</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-950 font-heading tracking-tight leading-[1.1] mb-5">
-            Enterprise Hardware Physical Architectures
+          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-[#242424] font-sans tracking-tight">
+            Proven Commercial & Critical Infrastructure Deployments
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Technical examination of high-durability optical sensors, sequential storage media, and high-budget PoE switching hardware distributed through Real Tech Vision.
+          <p className="text-sm sm:text-base text-[#616161] max-w-2xl mt-1">
+            Real-world hardware architectures engineered and fulfilled in collaboration with certified regional system integrators.
           </p>
         </div>
 
-        {/* Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Selector Navigation List Left (5 cols) */}
-          <div className="lg:col-span-5 space-y-2.5">
-            {showcaseItems.map((item, idx) => (
-              <button
-                key={item.title}
-                onClick={() => setActiveItem(idx)}
-                className={`w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex items-center justify-between ${
-                  activeItem === idx
-                    ? 'bg-slate-50 border-slate-900 shadow-2xs font-semibold'
-                    : 'bg-white border-slate-200/80 hover:border-slate-400/80 hover:bg-slate-50/50'
-                }`}
-              >
-                <div className="flex items-center gap-3.5">
-                  <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                      activeItem === idx
-                        ? 'bg-slate-950 text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600 border border-slate-200/80'
-                    }`}
-                  >
-                    <item.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold uppercase text-rtv-orange block">
-                      {item.category}
-                    </span>
-                    <h4 className="text-sm font-bold text-slate-950 leading-snug">
-                      {item.title}
-                    </h4>
-                  </div>
-                </div>
-
-                <span
-                  className={`text-[10px] font-mono px-2 py-0.5 rounded ${
-                    activeItem === idx
-                      ? 'bg-slate-200 text-slate-950 font-bold'
-                      : 'text-slate-400'
-                  }`}
+        {/* Microsoft Fluent Case Studies Grid (1 Large Featured + 2 Companions) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          {/* Featured Card (7 cols) */}
+          {caseStudies
+            .filter((c) => c.isFeatured)
+            .map((c) => {
+              const Icon = c.icon;
+              return (
+                <div
+                  key={c.id}
+                  className="lg:col-span-7 ms-card p-6 sm:p-8 flex flex-col justify-between bg-white border border-[#e6e6e6] relative overflow-hidden group"
                 >
-                  0{idx + 1}
-                </span>
-              </button>
-            ))}
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      <span className="text-[10px] font-bold px-2 py-0.5 bg-[#ebf3fc] text-[#0067b8] uppercase tracking-wider">
+                        FEATURED DEPLOYMENT
+                      </span>
+                      {c.categoryTags.map((t) => (
+                        <span key={t} className="text-[11px] text-[#616161] bg-[#f5f5f5] px-2 py-0.5">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#242424] leading-snug mb-3 group-hover:text-[#0067b8] transition-colors">
+                      {c.title}
+                    </h3>
+
+                    <p className="text-sm text-[#616161] leading-relaxed mb-8">
+                      {c.outcomeBlurb}
+                    </p>
+                  </div>
+
+                  {/* Metrics Row */}
+                  <div className="pt-6 border-t border-[#e6e6e6]">
+                    <div className="grid grid-cols-3 gap-4 mb-6">
+                      {c.keyMetrics.map((m) => (
+                        <div key={m.label} className="border-l-2 border-[#0067b8] pl-3">
+                          <span className="text-xl sm:text-2xl font-bold text-[#242424] block">
+                            {m.val}
+                          </span>
+                          <span className="text-xs text-[#616161]">{m.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button
+                      onClick={onOpenPartnerModal}
+                      className="ms-btn-primary text-xs py-2"
+                    >
+                      <span>Inquire Technical Architecture BOM</span>
+                      <ArrowRight className="w-3.5 h-3.5 ms-chevron" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+
+          {/* Companion Cards (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col gap-6">
+            {caseStudies
+              .filter((c) => !c.isFeatured)
+              .map((c) => {
+                const Icon = c.icon;
+                return (
+                  <div
+                    key={c.id}
+                    className="ms-card p-6 flex flex-col justify-between bg-white border border-[#e6e6e6] group"
+                  >
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        {c.categoryTags.map((t) => (
+                          <span key={t} className="text-[11px] text-[#616161] bg-[#f5f5f5] px-2 py-0.5">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <h3 className="text-base sm:text-lg font-bold text-[#242424] leading-snug mb-2 group-hover:text-[#0067b8] transition-colors">
+                        {c.title}
+                      </h3>
+
+                      <p className="text-xs text-[#616161] leading-relaxed mb-4">
+                        {c.outcomeBlurb}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-[#f0f0f0] flex items-center justify-between">
+                      <div className="flex items-center gap-4 text-xs">
+                        {c.keyMetrics.map((m) => (
+                          <span key={m.label} className="font-semibold text-[#242424]">
+                            {m.val} <span className="font-normal text-[#616161]">{m.label}</span>
+                          </span>
+                        ))}
+                      </div>
+
+                      <button
+                        onClick={onOpenPartnerModal}
+                        className="ms-link text-xs font-semibold"
+                      >
+                        <span>Details</span>
+                        <ChevronRight className="w-3.5 h-3.5 ms-chevron" />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
 
-          {/* Active Hardware Spec Display Right (7 cols) */}
-          <div className="lg:col-span-7 bg-slate-50/50 border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-2xs flex flex-col justify-between relative">
-            <div>
-              {/* Top Meta */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-6">
-                <span className="text-xs font-mono uppercase tracking-widest text-rtv-orange font-bold">
-                  {current.category}
-                </span>
-                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-                  {current.tag}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-rtv-orange shadow-2xs">
-                  <CurrentIcon className="w-7 h-7" />
-                </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-950 font-heading">
-                    {current.title}
-                  </h3>
-                  <span className="text-xs text-slate-500 font-mono">
-                    Form Factor: {current.formFactor}
-                  </span>
-                </div>
-              </div>
-
-              {/* Technical Specifications Matrix */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
-                    Performance / Resolution
-                  </span>
-                  <span className="text-sm font-bold text-slate-950">{current.resolution}</span>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
-                    Optics & Storage Architecture
-                  </span>
-                  <span className="text-sm font-bold text-slate-950">{current.optics}</span>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
-                    Chassis & Environmental Rating
-                  </span>
-                  <span className="text-sm font-bold text-slate-950">{current.chassis}</span>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-2xs">
-                  <span className="text-[11px] font-mono text-slate-400 uppercase block mb-1">
-                    Engineering Standard
-                  </span>
-                  <span className="text-sm font-bold text-slate-950">{current.standard}</span>
-                </div>
-              </div>
-
-              {/* Typical Deployment Environments */}
-              <div className="p-4 rounded-2xl bg-white border border-slate-200/80">
-                <span className="text-xs font-semibold text-slate-900 block mb-1">
-                  Target Commercial Deployments:
-                </span>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {current.deployments}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-400 font-mono">
-              <span>Direct Wholesale Sourcing</span>
-              <span className="text-rtv-orange font-semibold">Genuine Warranty Guaranteed</span>
-            </div>
-          </div>
         </div>
+
       </div>
     </section>
   );
 };
+
+export default VisualShowcase;

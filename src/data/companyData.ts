@@ -7,7 +7,10 @@ import {
   OperationalStep,
   ValuePillar,
   DigitalCapability,
-  DealerPillar
+  DealerPillar,
+  PortalProduct,
+  PortalBrand,
+  PortalCategory
 } from '../types';
 
 export const COMPANY_INFO = {
@@ -563,3 +566,67 @@ export const INDIAN_STATES_AND_CITIES: Record<string, string[]> = {
   'Madhya Pradesh': ['Indore', 'Bhopal', 'Jabalpur', 'Gwalior', 'Ujjain', 'Sagar'],
   'Bihar & Jharkhand': ['Patna', 'Ranchi', 'Jamshedpur', 'Dhanbad', 'Gaya', 'Bhagalpur', 'Muzaffarpur']
 };
+
+export const PORTAL_PRODUCTS: PortalProduct[] = [
+  { id: 'p1', name: '4MP IR Dome Camera', brand: 'Trueview', cat: 'IP Cameras', mrp: 5500, dp: 4200, icon: '📷', badge: 'New Launch', stock: 248, desc: 'H.265+, 30m IR, IP67 weatherproof housing' },
+  { id: 'p2', name: '8MP IP Bullet Camera', brand: 'Trueview', cat: 'IP Cameras', mrp: 7200, dp: 5800, icon: '📸', badge: 'Top Seller', stock: 124, desc: '4K Ultra-HD, AI detection, 50m long-range IR' },
+  { id: 'p3', name: '2MP HD Dome Camera', brand: 'Trueview', cat: 'IP Cameras', mrp: 2800, dp: 2100, icon: '🎥', badge: '', stock: 320, desc: 'H.265 compression, 20m IR, IP66 rated' },
+  { id: 'p4', name: 'PTZ Camera 4MP', brand: 'Hikvision', cat: 'IP Cameras', mrp: 19000, dp: 14500, icon: '🔭', badge: 'Enterprise', stock: 34, desc: '25x optical zoom, 100m IR night vision' },
+  { id: 'p5', name: '5MP ColorVu Camera', brand: 'Hikvision', cat: 'IP Cameras', mrp: 9500, dp: 7200, icon: '🌈', badge: 'Hot', stock: 88, desc: 'Full vivid color 24/7 day & night optics' },
+  { id: 'p6', name: '8CH NVR 4K Ultra', brand: 'Hikvision', cat: 'NVR / DVR', mrp: 16000, dp: 12500, icon: '📡', badge: 'Hot', stock: 84, desc: '8CH, 4K HDMI decoding, 2 HDD bays, H.265+' },
+  { id: 'p7', name: '16CH NVR H.265+', brand: 'Hikvision', cat: 'NVR / DVR', mrp: 24000, dp: 18500, icon: '🖥️', badge: 'Enterprise', stock: 42, desc: '16CH, 4K decoders, 4 HDD bays up to 40TB' },
+  { id: 'p8', name: '8CH DVR AHD 5MP', brand: 'Prama', cat: 'NVR / DVR', mrp: 8500, dp: 6800, icon: '📺', badge: '', stock: 96, desc: '5MP AHD, H.265+, 1 HDD support' },
+  { id: 'p9', name: 'PoE Switch 8 Port', brand: 'Fyber', cat: 'Networking', mrp: 4800, dp: 3800, icon: '🔌', badge: 'Top Seller', stock: 156, desc: '8 PoE + 2 Uplink, 120W total budget' },
+  { id: 'p10', name: 'PoE Switch 16 Port', brand: 'Fyber', cat: 'Networking', mrp: 9000, dp: 7200, icon: '🌐', badge: '', stock: 68, desc: '16 PoE + 2 Uplink, 240W high budget' },
+  { id: 'p11', name: 'Gigabit Router 4 Port', brand: 'Trionet', cat: 'Networking', mrp: 3200, dp: 2400, icon: '📶', badge: '', stock: 212, desc: '4 LAN, 1 WAN, multi-stream QoS' },
+  { id: 'p12', name: '4TB Surveillance HDD', brand: 'Toshiba', cat: 'Storage', mrp: 8500, dp: 6800, icon: '💾', badge: 'Hot', stock: 188, desc: '5400 RPM, 24×7 continuous video write' },
+  { id: 'p13', name: '2TB Purple HDD', brand: 'Toshiba', cat: 'Storage', mrp: 5000, dp: 3900, icon: '🗄️', badge: '', stock: 244, desc: '5400 RPM, 24×7 surveillance duty' },
+  { id: 'p14', name: 'Access Control Kit', brand: 'Maxxion', cat: 'Access Control', mrp: 11500, dp: 8900, icon: '🔐', badge: '', stock: 52, desc: 'RFID, fingerprint, 500 user directory' },
+  { id: 'p15', name: 'Fingerprint Biometric', brand: 'Maxxion', cat: 'Access Control', mrp: 5500, dp: 4200, icon: '👆', badge: 'New Launch', stock: 76, desc: '1000 fingerprints, TCP/IP network sync' },
+  { id: 'p16', name: '12V 5A SMPS Power', brand: 'Yadon', cat: 'Power Supply', mrp: 900, dp: 680, icon: '🔋', badge: 'Wholesale', stock: 480, desc: '12V DC, 5A auto-recovery fuse' },
+  { id: 'p17', name: 'CAT6 LAN Cable 305m', brand: 'Fyber', cat: 'Accessories', mrp: 5500, dp: 4200, icon: '📻', badge: '', stock: 98, desc: '305m pull box, 100% pure electrolytic copper' },
+  { id: 'p18', name: 'Smart Home Hub', brand: 'Qubo', cat: 'Accessories', mrp: 4200, dp: 3200, icon: '🏠', badge: 'New Launch', stock: 62, desc: 'Wi-Fi, Zigbee 3.0 sensor integration' },
+];
+
+export const PORTAL_BRANDS: PortalBrand[] = [
+  { name: 'MAXXION', sub: 'Access Control & Biometrics', emoji: '🔒' },
+  { name: 'TRUEVIEW', sub: 'CCTV & Smart Surveillance', emoji: '📷' },
+  { name: 'CP-PLUS', sub: 'Security & Surveillance Decoders', emoji: '📹' },
+  { name: 'PRAMA', sub: 'IP Cameras & Decoders', emoji: '🎥' },
+  { name: 'FYBER', sub: 'PoE & Network Infrastructure', emoji: '📡' },
+  { name: 'HIKVISION', sub: 'Enterprise Video Surveillance', emoji: '🛡️' },
+  { name: 'ACCESSORIES', sub: 'Installation & Cabling Hardware', emoji: '🔧' },
+  { name: 'QUBO', sub: 'Smart Home & AI Automation', emoji: '🏠' },
+  { name: 'TCL', sub: 'Commercial Security Displays', emoji: '📺' },
+  { name: 'TOSHIBA', sub: 'Surveillance Storage HDDs', emoji: '💾' },
+  { name: 'WD', sub: 'Purple Surveillance Storage', emoji: '🗄️' },
+  { name: 'SEAGATE', sub: 'SkyHawk Surveillance Drives', emoji: '💿' },
+  { name: 'KRYSTAA', sub: 'SMPS & Power Solutions', emoji: '⚡' },
+  { name: 'ESSL', sub: 'Biometrics & Access Control', emoji: '👆' },
+  { name: 'YADON', sub: 'Power Supply Systems', emoji: '🔋' },
+  { name: 'DLINK', sub: 'Enterprise Networking & PoE', emoji: '🌐' },
+  { name: 'ELCO', sub: 'Cables & Electronic Accessories', emoji: '💡' },
+  { name: 'FOLLA', sub: 'Server Racks & Cabinets', emoji: '📦' },
+  { name: 'LEMORELE', sub: 'Video Transmission & Extenders', emoji: '🖥️' }
+];
+
+export const COMING_SOON_BRANDS: PortalBrand[] = [
+  { name: 'IMOU', sub: 'Smart Consumer Security', emoji: '📷' },
+  { name: 'TRIONET', sub: 'Network Switches & Routers', emoji: '🌐' },
+  { name: 'SRB', sub: 'Surveillance Cabling & Wires', emoji: '🔌' },
+  { name: 'BEETEL', sub: 'Telecom & Enterprise Hardware', emoji: '📞' },
+  { name: 'MATRIX', sub: 'Telecom & Security Systems', emoji: '🏢' },
+  { name: 'HIFOCUS', sub: 'CCTV & Video Recorders', emoji: '📹' },
+  { name: 'PANASONIC', sub: 'Enterprise Security Optics', emoji: '👁️' },
+  { name: 'TP-LINK', sub: 'Omada Networking & VIGI', emoji: '📡' }
+];
+
+export const PORTAL_CATEGORIES: PortalCategory[] = [
+  { name: 'IP Cameras', emoji: '📷', count: 5 },
+  { name: 'NVR / DVR', emoji: '🖥️', count: 3 },
+  { name: 'Networking', emoji: '🔌', count: 3 },
+  { name: 'Storage', emoji: '💾', count: 2 },
+  { name: 'Access Control', emoji: '🔐', count: 2 },
+  { name: 'Power Supply', emoji: '🔋', count: 1 },
+  { name: 'Accessories', emoji: '🔧', count: 2 }
+];

@@ -7,55 +7,59 @@ interface IntroSectionProps {
 
 export const IntroSection: React.FC<IntroSectionProps> = ({ onOpenPartnerModal }) => {
   return (
-    <section id="intro" className="py-24 sm:py-32 bg-white relative border-t border-slate-100">
+    <section id="intro" className="py-24 sm:py-32 relative border-t border-slate-200/80">
+      {/* Precision corner crosshairs */}
+      <div className="absolute top-8 left-8 font-mono text-xs text-slate-400 select-none pointer-events-none">+</div>
+      <div className="absolute top-8 right-8 font-mono text-xs text-slate-400 select-none pointer-events-none">+</div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Asymmetrical Editorial Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Large Dominant Typography Statement (7 cols) */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
               <ShieldCheck className="w-3.5 h-3.5 text-rtv-orange" />
-              <span>02 // Channel Stewardship</span>
+              <span>Channel Stewardship</span>
             </div>
 
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-950 font-heading tracking-tight leading-[1.08]">
               Channel stewardship founded on technical discipline, regional reach, and mutual trust.
             </h2>
 
-            {/* Security Protocol Mini Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4">
-              <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+            {/* Security Protocol Painted Wall Panels */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-4">
+              <div className="p-5 rounded-2xl bg-white/80 border border-stone-200/90 shadow-2xs">
                 <span className="text-[10px] font-mono font-bold text-rtv-orange uppercase tracking-wider block mb-1">
                   Integrity Covenant
                 </span>
-                <span className="text-xs font-semibold text-slate-900 block">
+                <span className="text-xs font-bold text-slate-950 block">
                   Zero Direct End-User Retail
                 </span>
-                <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                <p className="text-[11px] text-slate-600 mt-1 leading-snug">
                   Total protection of dealer margins and client relationships.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
-                <span className="text-[10px] font-mono font-bold text-emerald-700 uppercase tracking-wider block mb-1">
+              <div className="p-5 rounded-2xl bg-white/80 border border-stone-200/90 shadow-2xs">
+                <span className="text-[10px] font-mono font-bold text-emerald-800 uppercase tracking-wider block mb-1">
                   Serial Verification
                 </span>
-                <span className="text-xs font-semibold text-slate-900 block">
+                <span className="text-xs font-bold text-slate-950 block">
                   Original Factory Stock
                 </span>
-                <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                <p className="text-[11px] text-slate-600 mt-1 leading-snug">
                   Direct OEM inward allocation with validated warranty records.
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50/70 border border-slate-200/80">
+              <div className="p-5 rounded-2xl bg-white/80 border border-stone-200/90 shadow-2xs">
                 <span className="text-[10px] font-mono font-bold text-slate-700 uppercase tracking-wider block mb-1">
                   Support Infrastructure
                 </span>
-                <span className="text-xs font-semibold text-slate-900 block">
+                <span className="text-xs font-bold text-slate-950 block">
                   In-House RMA Lab
                 </span>
-                <p className="text-[11px] text-slate-500 mt-1 leading-snug">
+                <p className="text-[11px] text-slate-600 mt-1 leading-snug">
                   Bench testing and manufacturer replacement management.
                 </p>
               </div>

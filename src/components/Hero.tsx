@@ -1,6 +1,9 @@
 import React from 'react';
-import { ArrowUpRight, ShieldCheck, Cpu, CheckCircle2 } from 'lucide-react';
-import { BRANDS } from '../data/companyData';
+import {
+  ArrowRight,
+  ExternalLink
+} from 'lucide-react';
+import { COMPANY_INFO } from '../data/companyData';
 
 interface HeroProps {
   onOpenPartnerModal: () => void;
@@ -8,110 +11,119 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenPartnerModal }) => {
   return (
-    <section id="hero" className="relative min-h-[92vh] flex flex-col justify-between pt-36 sm:pt-42 pb-12 bg-white overflow-hidden">
-      {/* Subtle Technical Engineering Grid */}
-      <div className="absolute inset-0 bg-subtle-grid pointer-events-none opacity-60" />
+    <section className="bg-white border-b border-[#e6e6e6] py-14 sm:py-20">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="max-w-6xl mx-auto">
+          {/* Centered Hero Header */}
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Minimalist Bold Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#13191E] font-sans leading-[1.15] mb-4">
+              Direct OEM Hardware Supply for India's Security Dealers & Integrators.
+            </h1>
 
-      {/* Main Hero Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 my-auto">
-        <div className="max-w-5xl">
-          {/* Security Telemetry Status Bar */}
-          <div className="flex flex-wrap items-center gap-2.5 mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-mono font-medium text-slate-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>SYS-NODE // RTV-SEC-2026</span>
-            </div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[11px] font-mono font-bold text-rtv-orange uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>100% Pure Channel Security Distribution</span>
-            </div>
-            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-[11px] font-mono text-slate-500">
-              <span>EST. 2008 • CHENNAI HO</span>
-            </div>
-          </div>
-
-          {/* Advanced & Modest Headline */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-950 font-heading leading-[1.0] mb-8">
-            National Infrastructure for Physical Security & Network Systems.
-          </h1>
-
-          {/* Supporting Statement & Engineering Telemetry */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-12">
-            <p className="md:col-span-8 text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed">
-              Facilitating authorized factory distribution of enterprise video surveillance, high-definition optical sensors, mission-critical storage, and edge networking hardware to over 4,000 verified channel partners across India.
+            {/* Concise Subtitle */}
+            <p className="text-base sm:text-lg text-[#5A6573] leading-relaxed max-w-2xl mx-auto mb-8 font-normal">
+              Realtech Vision connects certified CCTV optics, NVR decoders, enterprise PoE switches, and surveillance HDDs with 4,000+ verified channel partners nationwide.
             </p>
 
-            {/* Quick Channel Integrity Covenants */}
-            <div className="md:col-span-4 flex flex-col space-y-2 text-xs font-mono text-slate-600 border-l border-slate-200 pl-4 py-1">
-              <div className="flex items-center gap-2">
-                <span className="text-rtv-orange">01 //</span>
-                <span className="font-semibold text-slate-900">Zero Direct End-User Retail</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-rtv-orange">02 //</span>
-                <span>Serialized Factory Traceability</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-rtv-orange">03 //</span>
-                <span>Direct In-House RMA Protocol</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-rtv-orange">04 //</span>
-                <span>5 Strategic Regional Buffer Depots</span>
-              </div>
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+              <a
+                href={COMPANY_INFO.portalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ms-btn-primary group"
+              >
+                <span>Access B2B Order Portal</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              <button
+                onClick={onOpenPartnerModal}
+                className="bg-transparent hover:bg-[#FFF3EC] text-[#13191E] hover:text-[#FD5C08] border border-[#d1d5db] hover:border-[#FD5C08] font-semibold text-[13px] px-4 py-2 rounded-[2px] transition-colors"
+              >
+                Request Dealer Onboarding
+              </button>
+
+              <a
+                href="#solutions"
+                className="text-[13px] font-semibold text-[#FD5C08] hover:text-[#CA4400] hover:underline px-2 py-2 inline-flex items-center gap-1"
+              >
+                <span>Explore Hardware Lines</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
 
-          {/* Action Triggers */}
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={onOpenPartnerModal}
-              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-xs sm:text-sm text-white bg-slate-950 hover:bg-rtv-orange shadow-xs hover:shadow-md transition-all duration-200"
-            >
-              <span>Register as Channel Partner</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </button>
+          {/* Value Propositions Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 pt-8 border-t border-[#e6e6e6] text-center">
+            <div className="flex flex-col items-center">
+              <div className="text-2xl mb-1.5 leading-none">🏢</div>
+              <span className="text-sm sm:text-base font-bold text-[#13191E] block font-sans">
+                100% Distribution
+              </span>
+              <span className="text-xs text-[#5A6573] block mt-0.5">
+                Pure distribution business
+              </span>
+            </div>
 
-            <a
-              href="#solutions"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-semibold text-xs sm:text-sm text-slate-800 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-400 transition-all duration-200 shadow-2xs"
-            >
-              <Cpu className="w-4 h-4 text-rtv-orange" />
-              <span>Review Hardware Matrix</span>
-            </a>
+            <div className="flex flex-col items-center">
+              <div className="text-2xl mb-1.5 leading-none">💰</div>
+              <span className="text-sm sm:text-base font-bold text-[#13191E] block font-sans">
+                High Margins
+              </span>
+              <span className="text-xs text-[#5A6573] block mt-0.5">
+                Exclusive brand portfolio
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="text-2xl mb-1.5 leading-none">🛠️</div>
+              <span className="text-sm sm:text-base font-bold text-[#13191E] block font-sans">
+                Technical Support
+              </span>
+              <span className="text-xs text-[#5A6573] block mt-0.5">
+                Dedicated in-house team
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="text-2xl mb-1.5 leading-none">🚀</div>
+              <span className="text-sm sm:text-base font-bold text-[#13191E] block font-sans">
+                Dealer Growth
+              </span>
+              <span className="text-xs text-[#5A6573] block mt-0.5">
+                Committed to your success
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="text-2xl mb-1.5 leading-none">🏆</div>
+              <span className="text-sm sm:text-base font-bold text-[#13191E] block font-sans">
+                15+ Years
+              </span>
+              <span className="text-xs text-[#5A6573] block mt-0.5">
+                Distribution excellence
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="text-2xl mb-1.5 leading-none">🤝</div>
+              <span className="text-sm sm:text-base font-bold text-[#13191E] block font-sans">
+                4,000+ Dealers
+              </span>
+              <span className="text-xs text-[#5A6573] block mt-0.5">
+                Trusted nationwide
+              </span>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* Continuous Brand Marquee Ticker */}
-      <div className="relative z-10 w-full pt-14 border-t border-slate-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3 flex items-center justify-between">
-          <span className="text-xs font-mono uppercase tracking-widest text-slate-400 font-semibold flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-            Authorized Security & Technology Manufacturers
-          </span>
-          <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 font-semibold">
-            Certified Serial Traceability
-          </span>
         </div>
 
-        <div className="w-full overflow-hidden flex whitespace-nowrap py-3 bg-slate-50/60 border-y border-slate-100">
-          <div className="animate-marquee flex items-center gap-12 sm:gap-16">
-            {[...BRANDS, ...BRANDS].map((brand, i) => (
-              <div
-                key={`${brand.name}-${i}`}
-                className="inline-flex items-center gap-3 text-slate-800 font-heading font-black text-base sm:text-lg tracking-tight opacity-75 hover:opacity-100 transition-opacity cursor-default"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-rtv-orange" />
-                <span>{brand.name}</span>
-                <span className="text-[10px] font-mono font-medium text-slate-400 uppercase tracking-wider">
-                  [{brand.category}]
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
 };
+
+export default Hero;
