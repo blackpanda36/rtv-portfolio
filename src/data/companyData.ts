@@ -607,7 +607,15 @@ export const PORTAL_BRANDS: PortalBrand[] = [
   { name: 'DLINK', sub: 'Enterprise Networking & PoE', emoji: '🌐' },
   { name: 'ELCO', sub: 'Cables & Electronic Accessories', emoji: '💡' },
   { name: 'FOLLA', sub: 'Server Racks & Cabinets', emoji: '📦' },
-  { name: 'LEMORELE', sub: 'Video Transmission & Extenders', emoji: '🖥️' }
+  { name: 'LEMORELE', sub: 'Video Transmission & Extenders', emoji: '🖥️' },
+  { name: 'IMOU', sub: 'Smart Consumer Security', emoji: '📷' },
+  { name: 'TRIONET', sub: 'Network Switches & Routers', emoji: '🌐' },
+  { name: 'SRB', sub: 'Surveillance Cabling & Wires', emoji: '🔌' },
+  { name: 'BEETEL', sub: 'Telecom & Enterprise Hardware', emoji: '📞' },
+  { name: 'MATRIX', sub: 'Telecom & Security Systems', emoji: '🏢' },
+  { name: 'HIFOCUS', sub: 'CCTV & Video Recorders', emoji: '📹' },
+  { name: 'PANASONIC', sub: 'Enterprise Security Optics', emoji: '👁️' },
+  { name: 'TP-LINK', sub: 'Omada Networking & VIGI', emoji: '📡' }
 ];
 
 export const COMING_SOON_BRANDS: PortalBrand[] = [

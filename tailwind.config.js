@@ -68,15 +68,33 @@ export default {
             emerald: '#10B981',
             amber: '#F59E0B'
           }
+        },
+        es: {
+          blue: '#4660E9',
+          blueHover: '#387DFF',
+          blueLight: '#6880FF',
+          blueSubtle: '#EEF2FF',
+          slate: '#2E3E51',
+          heading: '#1D2026',
+          muted: '#7D8694',
+          light: '#ADB6C4',
+          bg2: '#F7F8FA',
+          bg3: '#F9F9F9',
+          border: '#E5E8ED',
+          footer: '#212B38',
+          footerDark: '#1B222D',
         }
       },
       fontFamily: {
-        sans: ['"Segoe UI"', 'SegoeUI', '-apple-system', 'BlinkMacSystemFont', 'Roboto', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Inter', 'Arial', 'Tahoma', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
         segoe: ['"Segoe UI"', 'SegoeUI', 'sans-serif'],
-        heading: ['"Segoe UI"', 'SegoeUI', '-apple-system', 'sans-serif'],
+        heading: ['Inter', 'Arial', 'Tahoma', '-apple-system', 'sans-serif'],
         mono: ['Consolas', '"Courier New"', 'monospace'],
       },
       boxShadow: {
+        'es-card': '0 4px 16px 0 rgba(105, 115, 140, 0.08)',
+        'es-card-hover': '0 12px 28px 0 rgba(0, 0, 0, 0.09)',
+        'es-dropdown': '0 4px 20px rgba(0, 0, 0, 0.1)',
         'fluent': '0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108)',
         'fluent-hover': '0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132), 0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108)',
         'fluent-depth': '0 12px 24px -4px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08)',

@@ -72,20 +72,23 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onOpenPartne
   ];
 
   return (
-    <section id="solutions" className="py-14 sm:py-18 bg-white border-b border-[#e6e6e6]">
+    <section id="solutions" className="py-16 sm:py-20 bg-white border-b border-[#E5E8ED]">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Microsoft Style: Left-Aligned Clean H2) */}
-        <div className="mb-8 sm:mb-10">
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-semibold text-[#13191E] font-sans tracking-tight">
+        {/* Centered EasySellers Section Title */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EEF2FF] text-[#4660E9] text-xs font-semibold uppercase tracking-wider mb-3">
+            <span>Hardware Focus</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D2026] font-sans tracking-tight">
             Trending Hardware & Surveillance Solutions
           </h2>
-          <p className="text-sm sm:text-base text-[#5A6573] max-w-2xl mt-1">
+          <p className="text-sm sm:text-base text-[#7D8694] mt-2.5 leading-relaxed max-w-2xl mx-auto">
             Pure wholesale supply of tier-1 global hardware for system integrators, dealers, and security contractors across India.
           </p>
         </div>
 
-        {/* Microsoft 4-Card Multi-Column Grid */}
+        {/* EasySellers 4-Card Multi-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card) => {
             const Icon = card.icon;
@@ -93,28 +96,27 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onOpenPartne
             return (
               <div
                 key={card.id}
-                className="ms-card flex flex-col justify-between group overflow-hidden bg-white border border-[#e6e6e6] hover:border-[#FD5C08]/50"
+                className="bg-white rounded-2xl border border-[#E5E8ED] hover:border-[#4660E9]/40 shadow-es-card hover:shadow-es-card-hover transition-all duration-300 flex flex-col justify-between group overflow-hidden"
               >
-                {/* Visual Header / Graphic Card (16:9 Aspect Ratio) */}
-                <div className={`relative h-48 bg-gradient-to-br ${card.graphicBg} p-5 flex flex-col justify-between overflow-hidden text-white`}>
-                  
+                {/* Visual Header / Graphic Card */}
+                <div className={`relative h-44 bg-gradient-to-br ${card.graphicBg} p-5 flex flex-col justify-between overflow-hidden text-white`}>
                   {/* Subtle Grid Pattern */}
                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]" />
 
                   {/* Top Badge */}
                   <div className="flex items-center justify-between relative z-10">
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-[2px] uppercase tracking-wider ${card.badgeColor}`}>
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider bg-white/20 backdrop-blur-xs text-white">
                       {card.badge}
                     </span>
-                    <span className="text-[11px] font-mono text-white/70">
+                    <span className="text-[11px] font-mono text-white/75">
                       {card.category}
                     </span>
                   </div>
 
                   {/* Center Icon Graphic */}
                   <div className="flex items-center justify-center my-auto relative z-10">
-                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                      <Icon className="w-7 h-7" />
                     </div>
                   </div>
 
@@ -127,22 +129,34 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onOpenPartne
                 {/* Card Body */}
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div>
-                    <h3 className="text-lg font-semibold text-[#13191E] leading-snug mb-2 group-hover:text-[#FD5C08] group-hover:underline transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-[#1D2026] leading-snug mb-2 group-hover:text-[#4660E9] transition-colors">
                       {card.title}
                     </h3>
-                    <p className="text-[13px] text-[#5A6573] leading-relaxed mb-6 font-normal">
+                    <p className="text-xs sm:text-[13px] text-[#7D8694] leading-relaxed mb-5 font-normal">
                       {card.description}
                     </p>
+
+                    {/* EasySellers Dot Bullet Indicators */}
+                    <div className="space-y-1.5 text-xs text-[#2E3E51] mb-6">
+                      <div className="flex items-center gap-2">
+                        <span className="icon-dot" />
+                        <span>Factory sealed genuine OEM serials</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="icon-dot" />
+                        <span>Direct branch buffer stock reserves</span>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Action Link (Microsoft Blue Link with Chevron) */}
-                  <div className="pt-2">
+                  {/* Action Link (Pill Outline Button) */}
+                  <div className="pt-2 border-t border-[#F0F2F5]">
                     <button
                       onClick={onOpenPartnerModal}
-                      className="ms-btn-primary w-full justify-between text-xs py-2"
+                      className="btn-es-outline w-full justify-center text-xs py-2 rounded-full flex items-center gap-1.5"
                     >
                       <span>Learn More</span>
-                      <ArrowRight className="w-3.5 h-3.5 ms-chevron" />
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>

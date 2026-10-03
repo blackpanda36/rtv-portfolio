@@ -4,59 +4,62 @@ import { BRANCHES } from '../data/companyData';
 
 export const PanIndiaNetwork: React.FC = () => {
   return (
-    <section id="network" className="py-12 sm:py-16 bg-[#fafafa] border-b border-[#e6e6e6]">
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="network" className="py-16 sm:py-24 bg-[#F7F8FA] border-b border-[#E5E8ED]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="mb-8 pb-3 border-b border-[#e6e6e6]">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#13191E] font-sans tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4660E9]/10 text-[#4660E9] text-xs font-semibold mb-3">
+            <span>PAN-INDIA LOGISTICS</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D2026] font-sans tracking-tight">
             5 Strategic Regional Super-Hubs
           </h2>
-          <p className="text-xs sm:text-sm text-[#5A6573] mt-0.5">
+          <p className="text-sm sm:text-base text-[#7D8694] mt-3 leading-relaxed">
             Centrally coordinated from Ritchie Street, Chennai, providing 24 to 48-hour order dispatch across all 28 states.
           </p>
         </div>
 
         {/* 5 Minimal Hub Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {BRANCHES.map((b) => {
             const phoneRaw = b.phone.replace(/[^0-9]/g, '');
             return (
               <div
                 key={b.id}
-                className="bg-white border border-[#e6e6e6] p-4 rounded-[2px] shadow-xs flex flex-col justify-between hover:border-[#FD5C08] transition-all"
+                className="bg-white border border-[#E5E8ED] p-5 rounded-2xl shadow-[0_4px_16px_rgba(105,115,140,0.06)] hover:shadow-[0_8px_24px_rgba(105,115,140,0.12)] hover:border-[#4660E9]/40 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono font-bold text-[#FD5C08] uppercase">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-mono font-bold text-[#4660E9] uppercase bg-[#4660E9]/10 px-2 py-0.5 rounded-full">
                       {b.city.substring(0, 3).toUpperCase()}-HUB
                     </span>
                     {b.isHeadquarter && (
-                      <span className="text-[9px] font-bold px-1.5 py-0.5 bg-[#FFF3EC] text-[#FD5C08] border border-[#FED7AA]/60 rounded-[2px]">
+                      <span className="text-[10px] font-bold px-2 py-0.5 bg-[#FFF3EC] text-[#FD5C08] border border-[#FED7AA] rounded-full">
                         CENTRAL HQ
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-sm font-bold text-[#13191E] mb-1">
+                  <h3 className="text-base font-bold text-[#1D2026] mb-1.5 group-hover:text-[#4660E9] transition-colors">
                     {b.city} Distribution Hub
                   </h3>
 
-                  <p className="text-xs text-[#5A6573] mb-3 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#7D8694] mb-4 line-clamp-3 leading-relaxed">
                     {b.address}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#f0f0f0] space-y-2 text-xs">
-                  <div className="flex items-center gap-1.5 text-[#13191E]">
-                    <Clock className="w-3.5 h-3.5 text-[#5A6573] flex-shrink-0" />
-                    <span className="font-semibold text-[11px]">{b.transitTime}</span>
+                <div className="pt-3 border-t border-[#F0F2F5] space-y-2.5 text-xs">
+                  <div className="inline-flex items-center gap-1.5 text-[#2E3E51] bg-[#F7F8FA] px-2.5 py-1 rounded-full border border-[#E5E8ED] text-[11px]">
+                    <Clock className="w-3.5 h-3.5 text-[#4660E9] flex-shrink-0" />
+                    <span className="font-medium">{b.transitTime}</span>
                   </div>
 
                   <div className="flex items-center justify-between pt-1">
                     <a
                       href={`tel:${phoneRaw}`}
-                      className="font-semibold text-[#FD5C08] hover:text-[#CA4400] hover:underline flex items-center gap-1 text-[11px]"
+                      className="font-medium text-[#FD5C08] hover:text-[#CA4400] hover:underline flex items-center gap-1 text-[11px]"
                     >
                       <Phone className="w-3 h-3" />
                       <span>{b.phone}</span>
@@ -66,10 +69,10 @@ export const PanIndiaNetwork: React.FC = () => {
                       href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.address)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#616161] hover:text-[#242424]"
+                      className="w-7 h-7 rounded-full bg-[#F7F8FA] hover:bg-[#4660E9] text-[#7D8694] hover:text-white flex items-center justify-center transition-colors"
                       aria-label="Map location"
                     >
-                      <ExternalLink className="w-3 h-3" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
