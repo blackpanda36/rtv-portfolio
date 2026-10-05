@@ -23,18 +23,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPartnerModal }) => {
           <div className="text-center max-w-3xl mx-auto">
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-white text-xs font-medium border border-white/20 mb-6 backdrop-blur-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>India's Verified B2B Hardware Network</span>
+              <span className="w-2 h-2 rounded-full bg-[#FD5C08] animate-pulse" />
+              <span>India's Verified <span className="text-[#FD5C08] font-bold">B2B Hardware</span> Network</span>
             </div>
 
             {/* Bold Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-sans leading-[1.18] mb-5">
-              Direct OEM Hardware Supply for Security Dealers & Integrators
+              Direct OEM Hardware Supply for <span className="text-[#FD5C08]">Security Dealers & Integrators</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-2xl mx-auto mb-9 font-normal">
-              Connecting certified CCTV optics, NVR decoders, enterprise PoE switches, and surveillance HDDs with 4,000+ verified channel partners across India.
+              Connecting certified CCTV optics, NVR decoders, enterprise PoE switches, and surveillance HDDs with <span className="text-[#FD5C08] font-semibold">4,000+ verified channel partners</span> across India.
             </p>
 
             {/* Centered Pill Action Buttons */}
@@ -58,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPartnerModal }) => {
 
               <a
                 href="#solutions"
-                className="text-sm font-medium text-white/80 hover:text-white hover:underline px-3 py-3 inline-flex items-center gap-1.5 transition-colors"
+                className="text-sm font-medium text-white/80 hover:text-[#FD5C08] hover:underline px-3 py-3 inline-flex items-center gap-1.5 transition-colors"
               >
                 <span>Explore Hardware Lines</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -70,38 +70,38 @@ export const Hero: React.FC<HeroProps> = ({ onOpenPartnerModal }) => {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-4 text-center">
             <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-3.5 transition-all">
               <div className="text-2xl mb-1">🏢</div>
-              <span className="text-sm font-bold text-white block">100% Distribution</span>
-              <span className="text-[11px] text-white/60 block mt-0.5">Pure wholesale model</span>
+              <span className="text-sm font-bold text-[#FD5C08] block">100% Distribution</span>
+              <span className="text-[11px] text-white/70 block mt-0.5">Pure wholesale model</span>
             </div>
 
             <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-3.5 transition-all">
               <div className="text-2xl mb-1">💰</div>
-              <span className="text-sm font-bold text-white block">High Margins</span>
-              <span className="text-[11px] text-white/60 block mt-0.5">Protected dealer tiers</span>
+              <span className="text-sm font-bold text-[#FD5C08] block">High Margins</span>
+              <span className="text-[11px] text-white/70 block mt-0.5">Protected dealer tiers</span>
             </div>
 
             <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-3.5 transition-all">
               <div className="text-2xl mb-1">🛠️</div>
-              <span className="text-sm font-bold text-white block">In-House RMA</span>
-              <span className="text-[11px] text-white/60 block mt-0.5">48h warranty turnaround</span>
+              <span className="text-sm font-bold text-[#FD5C08] block">In-House RMA</span>
+              <span className="text-[11px] text-white/70 block mt-0.5">48h warranty turnaround</span>
             </div>
 
             <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-3.5 transition-all">
               <div className="text-2xl mb-1">🚀</div>
-              <span className="text-sm font-bold text-white block">24-48h Transit</span>
-              <span className="text-[11px] text-white/60 block mt-0.5">5 regional super-hubs</span>
+              <span className="text-sm font-bold text-[#FD5C08] block">24-48h Transit</span>
+              <span className="text-[11px] text-white/70 block mt-0.5">5 regional super-hubs</span>
             </div>
 
             <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-3.5 transition-all">
               <div className="text-2xl mb-1">🏆</div>
-              <span className="text-sm font-bold text-white block">15+ Years</span>
-              <span className="text-[11px] text-white/60 block mt-0.5">Supply chain mastery</span>
+              <span className="text-sm font-bold text-[#FD5C08] block">15+ Years</span>
+              <span className="text-[11px] text-white/70 block mt-0.5">Supply chain mastery</span>
             </div>
 
             <div className="bg-white/5 hover:bg-white/10 backdrop-blur-xs border border-white/10 rounded-xl p-3.5 transition-all">
               <div className="text-2xl mb-1">🤝</div>
-              <span className="text-sm font-bold text-white block">4,000+ Dealers</span>
-              <span className="text-[11px] text-white/60 block mt-0.5">Trusted nationwide</span>
+              <span className="text-sm font-bold text-[#FD5C08] block">4,000+ Dealers</span>
+              <span className="text-[11px] text-white/70 block mt-0.5">Trusted nationwide</span>
             </div>
           </div>
 

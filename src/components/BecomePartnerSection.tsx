@@ -9,7 +9,6 @@ import {
   MessageSquare,
   ShieldCheck,
   CheckCircle2,
-  Sparkles,
   Truck
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
@@ -80,15 +79,11 @@ export const BecomePartnerSection: React.FC<BecomePartnerSectionProps> = ({ onOp
         
         {/* Centered EasySellers Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEF2FF] text-[#4660E9] text-xs font-semibold uppercase tracking-wider mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Channel Onboarding Guide</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D2026] font-sans tracking-tight leading-tight">
-            How to Become an Authorized Partner & Start Purchasing
+            How to Become an Authorized Partner & <span className="text-[#FD5C08]">Start Purchasing</span>
           </h2>
           <p className="text-sm sm:text-base text-[#7D8694] mt-2.5 leading-relaxed max-w-2xl mx-auto">
-            Follow these 4 simple steps to establish your wholesale account, access tier-1 manufacturer pricing, and order genuine security & IT hardware with protected dealer margins.
+            Follow these 4 simple steps to establish your wholesale account, access <span className="text-[#FD5C08] font-semibold">tier-1 manufacturer pricing</span>, and order genuine security & IT hardware with protected dealer margins.
           </p>
         </div>
 
@@ -140,7 +135,7 @@ export const BecomePartnerSection: React.FC<BecomePartnerSectionProps> = ({ onOp
                     <div>
                       {/* Step Top Meta */}
                       <div className="flex items-center justify-between mb-5">
-                        <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#F7F8FA] border border-[#E5E8ED] text-[#2E3E51]">
+                        <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#FFF3EC] border border-[#FED7AA] text-[#FD5C08]">
                           {item.badge}
                         </span>
                         <div className={`w-11 h-11 rounded-xl border flex items-center justify-center shadow-xs transition-transform group-hover:scale-105 ${item.iconBg}`}>
@@ -148,7 +143,7 @@ export const BecomePartnerSection: React.FC<BecomePartnerSectionProps> = ({ onOp
                         </div>
                       </div>
 
-                      <h3 className="text-base font-bold text-[#1D2026] group-hover:text-[#4660E9] transition-colors mb-2">
+                      <h3 className="text-base font-bold text-[#1D2026] group-hover:text-[#FD5C08] transition-colors mb-2">
                         {item.title}
                       </h3>
 
@@ -230,10 +225,10 @@ export const BecomePartnerSection: React.FC<BecomePartnerSectionProps> = ({ onOp
               <span className="text-[11px] font-bold uppercase tracking-wider bg-white/10 px-3 py-0.5 rounded-full text-emerald-400 border border-emerald-400/20">
                 100% Pure B2B Distribution
               </span>
-              <span className="text-xs text-white/60">• Zero Retail Bypass Guarantee</span>
+              <span className="text-xs text-[#FD5C08] font-medium">• Zero Retail Bypass Guarantee</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-              Ready to start? Open our portal or submit your dealer request today.
+              Ready to start? Open our portal or submit your <span className="text-[#FD5C08]">dealer request today</span>.
             </h3>
             <p className="text-xs sm:text-sm text-white/80 max-w-2xl leading-relaxed">
               Access the live wholesale portal directly or request priority onboarding with our regional logistics desks across Chennai, Delhi, Hyderabad, Bangalore, and Surat.
@@ -277,16 +272,16 @@ export const BecomePartnerSection: React.FC<BecomePartnerSectionProps> = ({ onOp
         {/* Benefits Checklist Footer Bar */}
         <div className="mt-6 pt-6 border-t border-[#e6e6e6] grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#5A6573]">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-            <span><strong>Zero registration fees:</strong> Verification is 100% free for bona fide channel partners.</span>
+            <CheckCircle2 className="w-4 h-4 text-[#FD5C08] flex-shrink-0" />
+            <span><strong className="text-[#1D2026]">Zero registration fees:</strong> Verification is <span className="text-[#FD5C08] font-semibold">100% free</span> for bona fide channel partners.</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-            <span><strong>2-Hour response:</strong> Immediate dispatch of portal credentials by regional teams.</span>
+            <CheckCircle2 className="w-4 h-4 text-[#FD5C08] flex-shrink-0" />
+            <span><strong className="text-[#1D2026]">2-Hour response:</strong> Immediate dispatch of portal credentials by regional teams.</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-            <span><strong>Margin protection:</strong> Direct manufacturer stock without retail end-user bidding.</span>
+            <CheckCircle2 className="w-4 h-4 text-[#FD5C08] flex-shrink-0" />
+            <span><strong className="text-[#1D2026]">Margin protection:</strong> Direct manufacturer stock without retail end-user bidding.</span>
           </div>
         </div>
 

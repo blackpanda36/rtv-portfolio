@@ -9,14 +9,14 @@ export const PanIndiaNetwork: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#4660E9]/10 text-[#4660E9] text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFF3EC] text-[#FD5C08] border border-[#FED7AA]/60 text-xs font-semibold mb-3">
             <span>PAN-INDIA LOGISTICS</span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D2026] font-sans tracking-tight">
-            5 Strategic Regional Super-Hubs
+            5 Strategic <span className="text-[#FD5C08]">Regional Super-Hubs</span>
           </h2>
           <p className="text-sm sm:text-base text-[#7D8694] mt-3 leading-relaxed">
-            Centrally coordinated from Ritchie Street, Chennai, providing 24 to 48-hour order dispatch across all 28 states.
+            Centrally coordinated from <span className="text-[#FD5C08] font-semibold">Ritchie Street, Chennai</span>, providing 24 to 48-hour order dispatch across all 28 states.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export const PanIndiaNetwork: React.FC = () => {
             return (
               <div
                 key={b.id}
-                className="bg-white border border-[#E5E8ED] p-5 rounded-2xl shadow-[0_4px_16px_rgba(105,115,140,0.06)] hover:shadow-[0_8px_24px_rgba(105,115,140,0.12)] hover:border-[#4660E9]/40 transition-all flex flex-col justify-between group"
+                className="bg-white border border-[#E5E8ED] p-5 rounded-2xl shadow-[0_4px_16px_rgba(105,115,140,0.06)] hover:shadow-[0_8px_24px_rgba(105,115,140,0.12)] hover:border-[#FD5C08]/50 transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -41,7 +41,7 @@ export const PanIndiaNetwork: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 className="text-base font-bold text-[#1D2026] mb-1.5 group-hover:text-[#4660E9] transition-colors">
+                  <h3 className="text-base font-bold text-[#1D2026] mb-1.5 group-hover:text-[#FD5C08] transition-colors">
                     {b.city} Distribution Hub
                   </h3>
 

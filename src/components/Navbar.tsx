@@ -39,7 +39,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
               alt="Realtech Vision"
               className="h-8 sm:h-9 w-auto object-contain transition-transform duration-150 group-hover:scale-[1.02]"
             />
-            <span className="hidden sm:inline-block text-[11px] font-mono text-[#7D8694] uppercase tracking-wider pl-2 border-l border-[#E5E8ED]">
+            <span className="hidden sm:inline-block text-[11px] font-mono text-[#FD5C08] font-semibold uppercase tracking-wider pl-2 border-l border-[#E5E8ED]">
               B2B Distribution
             </span>
           </a>
@@ -48,25 +48,25 @@ export const Navbar: React.FC<NavbarProps> = () => {
           <nav className="hidden lg:flex items-center gap-1 text-[13px] text-[#7D8694]">
             <a
               href="#solutions"
-              className="px-3 py-1.5 hover:text-[#4660E9] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
+              className="px-3 py-1.5 hover:text-[#FD5C08] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
             >
               Solutions
             </a>
             <a
               href="#brands"
-              className="px-3 py-1.5 hover:text-[#4660E9] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
+              className="px-3 py-1.5 hover:text-[#FD5C08] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
             >
               Authorized Brands
             </a>
             <a
               href="#how-to-partner"
-              className="px-3 py-1.5 hover:text-[#4660E9] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
+              className="px-3 py-1.5 hover:text-[#FD5C08] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
             >
               How to Partner
             </a>
             <a
               href="#network"
-              className="px-3 py-1.5 hover:text-[#4660E9] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
+              className="px-3 py-1.5 hover:text-[#FD5C08] hover:underline decoration-1 underline-offset-4 transition-colors font-medium"
             >
               5 Regional Hubs
             </a>

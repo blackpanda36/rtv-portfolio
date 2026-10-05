@@ -77,14 +77,11 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onOpenPartne
         
         {/* Centered EasySellers Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EEF2FF] text-[#4660E9] text-xs font-semibold uppercase tracking-wider mb-3">
-            <span>Hardware Focus</span>
-          </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1D2026] font-sans tracking-tight">
-            Trending Hardware & Surveillance Solutions
+            Trending Hardware & <span className="text-[#FD5C08]">Surveillance Solutions</span>
           </h2>
           <p className="text-sm sm:text-base text-[#7D8694] mt-2.5 leading-relaxed max-w-2xl mx-auto">
-            Pure wholesale supply of tier-1 global hardware for system integrators, dealers, and security contractors across India.
+            Pure wholesale supply of <span className="text-[#FD5C08] font-semibold">tier-1 global hardware</span> for system integrators, dealers, and security contractors across India.
           </p>
         </div>
 
@@ -96,7 +93,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onOpenPartne
             return (
               <div
                 key={card.id}
-                className="bg-white rounded-2xl border border-[#E5E8ED] hover:border-[#4660E9]/40 shadow-es-card hover:shadow-es-card-hover transition-all duration-300 flex flex-col justify-between group overflow-hidden"
+                className="bg-white rounded-2xl border border-[#E5E8ED] hover:border-[#FD5C08]/50 shadow-es-card hover:shadow-es-card-hover transition-all duration-300 flex flex-col justify-between group overflow-hidden"
               >
                 {/* Visual Header / Graphic Card */}
                 <div className={`relative h-44 bg-gradient-to-br ${card.graphicBg} p-5 flex flex-col justify-between overflow-hidden text-white`}>
@@ -129,7 +126,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onOpenPartne
                 {/* Card Body */}
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold text-[#1D2026] leading-snug mb-2 group-hover:text-[#4660E9] transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-[#1D2026] leading-snug mb-2 group-hover:text-[#FD5C08] transition-colors">
                       {card.title}
                     </h3>
                     <p className="text-xs sm:text-[13px] text-[#7D8694] leading-relaxed mb-5 font-normal">

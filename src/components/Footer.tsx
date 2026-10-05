@@ -19,9 +19,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
   };
 
   return (
-    <footer className="bg-[#212B38] text-[#8D9BAE] text-xs border-t border-[#2E3C4E]">
+    <footer className="relative bg-[#0c1445] text-blue-100/75 text-xs border-t border-[#1b276b] overflow-hidden">
+      {/* Subtle background mesh pattern for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(#4660e9_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
+
       {/* 4-Column Minimal Footer */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-14 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* Col 1: Realtech Vision Brand & Official Contacts */}
@@ -35,23 +38,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
                 />
               </div>
             </a>
-            <p className="text-xs text-[#8D9BAE] leading-relaxed">
+            <p className="text-xs text-blue-100/75 leading-relaxed">
               India's leading B2B physical security & IT hardware distributor. Pure wholesale covenant protecting 4,000+ verified channel dealers.
             </p>
             <div className="space-y-2 pt-2 text-xs">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#4660E9] flex-shrink-0 mt-0.5" />
-                <span className="text-[#A0ABB9]">{COMPANY_INFO.headOffice}</span>
+                <MapPin className="w-4 h-4 text-[#FD5C08] flex-shrink-0 mt-0.5" />
+                <span className="text-blue-100/90">{COMPANY_INFO.headOffice}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#4660E9] flex-shrink-0" />
-                <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="font-semibold text-white hover:text-[#4660E9] transition-colors">
+                <Phone className="w-4 h-4 text-[#FD5C08] flex-shrink-0" />
+                <a href={`tel:${COMPANY_INFO.phoneRaw}`} className="font-semibold text-white hover:text-[#FD5C08] transition-colors">
                   {COMPANY_INFO.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#4660E9] flex-shrink-0" />
-                <a href={`mailto:${COMPANY_INFO.email}`} className="text-[#A0ABB9] hover:text-[#4660E9] transition-colors">
+                <Mail className="w-4 h-4 text-[#FD5C08] flex-shrink-0" />
+                <a href={`mailto:${COMPANY_INFO.email}`} className="text-blue-100/90 hover:text-[#FD5C08] transition-colors">
                   {COMPANY_INFO.email}
                 </a>
               </div>
@@ -66,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
             <ul className="space-y-2.5 text-xs">
               {PORTAL_CATEGORIES.map((c) => (
                 <li key={c.name}>
-                  <a href="#solutions" className="text-[#8D9BAE] hover:text-white transition-colors flex items-center gap-2">
+                  <a href="#solutions" className="text-blue-200/70 hover:text-[#FD5C08] transition-colors flex items-center gap-2">
                     <span className="text-sm">{c.emoji}</span>
                     <span>{c.name}</span>
                   </a>
@@ -81,11 +84,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
               Regional Super-Hubs
             </h4>
             <ul className="space-y-2.5 text-xs">
-              <li><a href="#network" className="text-[#8D9BAE] hover:text-white transition-colors block">Chennai Central Super-HQ (Ritchie St)</a></li>
-              <li><a href="#network" className="text-[#8D9BAE] hover:text-white transition-colors block">Delhi NCR Regional Hub</a></li>
-              <li><a href="#network" className="text-[#8D9BAE] hover:text-white transition-colors block">Hyderabad Central Branch</a></li>
-              <li><a href="#network" className="text-[#8D9BAE] hover:text-white transition-colors block">Bangalore Tech Hub</a></li>
-              <li><a href="#network" className="text-[#8D9BAE] hover:text-white transition-colors block">Surat Western Hub</a></li>
+              <li><a href="#network" className="text-blue-200/70 hover:text-[#FD5C08] transition-colors block">Chennai Central Super-HQ (Ritchie St)</a></li>
+              <li><a href="#network" className="text-blue-200/70 hover:text-[#FD5C08] transition-colors block">Delhi NCR Regional Hub</a></li>
+              <li><a href="#network" className="text-blue-200/70 hover:text-[#FD5C08] transition-colors block">Hyderabad Central Branch</a></li>
+              <li><a href="#network" className="text-blue-200/70 hover:text-[#FD5C08] transition-colors block">Bangalore Tech Hub</a></li>
+              <li><a href="#network" className="text-blue-200/70 hover:text-[#FD5C08] transition-colors block">Surat Western Hub</a></li>
             </ul>
           </div>
 
@@ -100,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
                   href={COMPANY_INFO.portalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-semibold text-[#6880FF] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 font-semibold text-[#FD5C08] hover:text-[#ff782e] transition-colors"
                 >
                   <span>Live Dealer Portal (realtechvision.in)</span>
                   <span>→</span>
@@ -111,7 +114,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
                   href={COMPANY_INFO.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-semibold hover:bg-emerald-500/20 transition-all"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 font-semibold hover:bg-emerald-500/25 transition-all"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
                   <span>WhatsApp Channel Desk</span>
@@ -120,7 +123,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
               <li>
                 <a
                   href="#how-to-partner"
-                  className="text-[#8D9BAE] hover:text-white transition-colors block"
+                  className="text-blue-200/70 hover:text-white transition-colors block"
                 >
                   How to Partner & Purchase Guide
                 </a>
@@ -128,7 +131,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
               <li>
                 <button
                   onClick={onOpenPartnerModal}
-                  className="text-[#8D9BAE] hover:text-white transition-colors text-left"
+                  className="text-blue-200/70 hover:text-white transition-colors text-left"
                 >
                   Authorized Dealer Onboarding
                 </button>
@@ -136,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
               <li>
                 <button
                   onClick={onOpenPartnerModal}
-                  className="text-[#8D9BAE] hover:text-white transition-colors text-left"
+                  className="text-blue-200/70 hover:text-white transition-colors text-left"
                 >
                   100% Pure Distribution Policy
                 </button>
@@ -148,20 +151,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPartnerModal }) => {
       </div>
 
       {/* Bottom Utility Strip */}
-      <div className="bg-[#1B222D] border-t border-[#283444] py-4 text-[11px] text-[#718096]">
+      <div className="bg-[#070c28] border-t border-[#162159] py-4 text-[11px] text-blue-200/60 relative z-10">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           
           <div className="flex items-center gap-2">
-            <Globe className="w-3.5 h-3.5 text-[#4660E9]" />
-            <span className="font-medium text-[#A0ABB9]">English (India)</span>
+            <Globe className="w-3.5 h-3.5 text-[#FD5C08]" />
+            <span className="font-medium text-blue-100/80">English (India)</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-5">
             <button
               onClick={scrollToTop}
-              className="text-[#A0ABB9] hover:text-white font-medium flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#212B38] border border-[#2E3C4E] hover:border-[#4660E9] transition-all focus:outline-none"
+              className="text-blue-100 hover:text-white font-medium flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#121c54] border border-[#22337d] hover:border-[#4660E9] hover:bg-[#19266e] transition-all focus:outline-none"
             >
-              <ArrowUp className="w-3 h-3 text-[#4660E9]" />
+              <ArrowUp className="w-3 h-3 text-[#FD5C08]" />
               <span>Back to top</span>
             </button>
             <span>© Realtech Vision 2026. All rights reserved.</span>
